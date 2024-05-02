@@ -1,0 +1,69 @@
+@font-face {
+    font-family: Poppins;
+    src: url();
+}
+html{
+    font-family: Poppins;
+    min-height: 100%;
+}
+
+.container{
+
+}
+/*-----------------------------------------------------------------------------------------------------*/
+.navbar{
+    /* margin-left: 20px;
+    margin-right: 20px; */
+    width: 100%;
+    height: 80px;
+    background-color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------------------*/
+.pagina1{
+    width: 100%;
+    height: 400px;
+    /* background-color: black; */
+    background-image: url(..arquivos\img\chapada___veu_de_noiva___0035-3.jpg);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+
+
+/*-----------------------------------------------------------------------------------------------------*/
+.pagina2{
+    width: 100%;
+    height: 600px;
+    background-color: rgb(31, 158, 26);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card{
+    width: 100px;
+    height: 200px;
+    background-color: white;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
