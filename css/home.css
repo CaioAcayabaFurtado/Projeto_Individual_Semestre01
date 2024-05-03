@@ -6,64 +6,176 @@ html{
     font-family: Poppins;
     min-height: 100%;
 }
+/* verde: rgb(31, 158, 26); */
 
-.container{
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6; /* Define a altura da linha para melhor legibilidade */
+}
+/*-----------------------------------------------------------------------------------------------------*
 /*-----------------------------------------------------------------------------------------------------*/
 .navbar{
-    /* margin-left: 20px;
-    margin-right: 20px; */
     width: 100%;
-    height: 80px;
-    background-color: white;
+    height: 70px;
+    background-color: rgb(255,255,255, 0.9);
 
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    position: fixed;
+    
+}
+
+.nome{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo{
+    height: 45px;
+    margin-left: 20px;
+}
+.titulo{
+    margin-left: 20px;
+    font-size: 20px;
+}
+.titulo span{
+    color: rgb(22, 105, 19);
 }
 
 
 
+.botao{
+    font-family: Poppins;
+    background-color:rgb(31, 158, 26);
+    color: white;
+    margin-right: 20px;
 
-
-
-
-
+    border-style: none;
+    border-radius: 50px;
+    width: 80px;
+    height: 30px;
+}
+.botao:hover {
+    background-color: rgb(22, 105, 19); /* Nova cor de fundo */
+}
 
 /*-----------------------------------------------------------------------------------------------------*/
 .pagina1{
     width: 100%;
+    height: 580px;
+    background-size: cover;
+    background-image: url(../arquivos/img/chapada___veu_de_noiva___0035-3.jpg);
+
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.perguntas{
+    color: white;
+    font-size: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+.botao2{
+    font-family: Poppins;
+    background-color:rgb(255, 255, 255);
+    color: rgb(22, 105, 19);
+
+    border-style: none;
+    border-radius: 50px;
+    width: 200px;
+    height: 40px;
+}
+.botao2:hover {
+    background-color: rgb(214, 210, 210); /* Nova cor de fundo */
+}
+/*-----------------------------------------------------------------------------------------------------*/
+
+.pagina1_1{
+    background-color: white;
+    width: 100%;
     height: 400px;
-    /* background-color: black; */
-    background-image: url(..arquivos\img\chapada___veu_de_noiva___0035-3.jpg);
 
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items:center;
+    flex-direction: row;
 }
 
-
-
+.paragrafo1pg1{
+    width: 600px;
+}
+.paragrafo1pg1 span{
+    color: rgb(22, 105, 19);
+}
+.imagempg1{
+    width: 400px;
+    height: 300px;
+    background-size: cover;
+    background-image: url(../arquivos/img/o-que-e-turismo-de-aventura-e-como-pratica-lo.jpg);
+    border-radius: 10px;
+}
 
 /*-----------------------------------------------------------------------------------------------------*/
 .pagina2{
     width: 100%;
-    height: 600px;
+    height: 400px;
     background-color: rgb(31, 158, 26);
 
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.carrossel{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
 }
 
 .card{
-    width: 100px;
+    
+    width: 400px;
     height: 200px;
     background-color: white;
+    border-radius: 33px;
 
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
+    /* box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56);
+        -webkit-box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56);
+        -moz-box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56); */
 }
+.titulopg2{
+    font-size: 40px;
+    color: white;
+}
+.paragrafo1pg2{
+    width: 200px;
+    height: 200px;
+}
+
+.logopg2{
+    height: 100%;
+}
+
 
