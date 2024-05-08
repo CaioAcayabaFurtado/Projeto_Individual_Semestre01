@@ -1,0 +1,127 @@
+@font-face {
+    font-family: Poppins;
+    src: url();
+}
+html{
+    font-family: Poppins;
+    min-height: 100%;
+}
+/* verde: rgb(31, 158, 26); */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6; /* Define a altura da linha para melhor legibilidade */
+}
+/*-----------------------------------------------------------------------------------------------------*
+/*-----------------------------------------------------------------------------------------------------*/
+.navbar{
+    width: 100%;
+    height: 70px;
+    background-color: rgb(255,255,255, 1);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    
+}
+
+.nome{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo{
+    height: 45px;
+    margin-left: 20px;
+}
+.titulo{
+    margin-left: 20px;
+    font-size: 20px;
+}
+.titulo span{
+    color: rgb(22, 105, 19);
+}
+
+
+
+.botao{
+    font-family: Poppins;
+    background-color:rgb(31, 158, 26);
+    color: white;
+    margin-right: 20px;
+
+    border-style: none;
+    border-radius: 50px;
+    width: 130px;
+    height: 30px;
+}
+.botao:hover {
+    background-color: rgb(22, 105, 19); /* Nova cor de fundo */
+}
+/*-----------------------------------------------------------------------------------------------------*/
+
+.pagina{
+    background-image: url("../arquivos/img/fundologin.png");
+    background-size: cover;
+    width: 100%;
+    height: 650px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    width: 400px;
+    height: 300px;
+    background-color: rgb(255,255,255, 0.9);
+    border-radius: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.tituloL{
+    font-size: 30px;
+}
+.textoinpt{
+    font-size: 20px;
+}
+
+input{
+    font-family: Poppins;
+    border-radius: 33px;
+    border: 0px;
+    background-color: rgb(31, 158, 26, 0.7);
+    color: white;
+
+}
+
+.menor{
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
