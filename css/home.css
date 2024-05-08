@@ -132,7 +132,7 @@ body {
 /*-----------------------------------------------------------------------------------------------------*/
 .pagina2{
     width: 100%;
-    height: 400px;
+    height: 250px;
     background-color: rgb(31, 158, 26);
 
     display: flex;
@@ -152,7 +152,7 @@ body {
 .card{
     
     width: 400px;
-    height: 200px;
+    height: 100px;
     background-color: white;
     border-radius: 33px;
 
@@ -178,4 +178,10 @@ body {
     height: 100%;
 }
 
+/*-----------------------------------------------------------------------------------------------------*/
 
+.pagina3{
+    width: 100%;
+    height: 400px;
+    background-color: white;
+}

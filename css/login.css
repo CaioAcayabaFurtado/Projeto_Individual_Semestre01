@@ -103,17 +103,63 @@ body {
 }
 
 input{
+    width: 200px;
     font-family: Poppins;
     border-radius: 33px;
-    border: 0px;
+    border: none;
     background-color: rgb(31, 158, 26, 0.7);
     color: white;
+    text-align: center;
+}
+input::placeholder{
+    font-family: Poppins;
+    color: white;
 
+}
+input:hover{
+    background-color: rgb(31, 158, 26);
+}
+
+.botaoL{
+    font-family: Poppins;
+    background-color:rgb(31, 158, 26);
+    color: white;
+
+    border-style: none;
+    border-radius: 50px;
+    width: 130px;
+    height: 30px;
+    margin-top: 10px;
+    }
+.botaoL:hover {
+    background-color: rgb(22, 105, 19); /* Nova cor de fundo */
 }
 
 .menor{
     font-size: 12px;
 }
+
+.cadastro{
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: row;    
+}
+
+.botaoC{
+    font-family: Poppins;
+    color: rgb(22, 105, 19);
+    width: 90px;
+    border: none;
+    border-radius: 20px;
+
+}
+.botaoC:hover{
+    background-color: rgb(206, 206, 206);
+}
+
 
 
 

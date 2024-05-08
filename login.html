@@ -12,17 +12,37 @@
             <img class="logo" src="arquivos/img/arrows.png" alt="">
             <p><b class="titulo">Rota <span>Verde</span></b> <i>Ecoturismo e Conservação Ambiental</i></p>
         </div>
-        <button class="botao">Página Inicial</button>
+        <button class="botao" onclick="pag_i()">Página Inicial</button>
     </div><!-- NavBar -->
     <div class="pagina">
-        <div class="box">
+
+        <div class="box"> <!-- Box / Login -->
+
             <p class="tituloL"><b>Insira seus dados:</b></p>
             <p class="textoinpt"><i>CNPJ</i></p>
-            <input type="text" id="input_cnpj" placeholder="">
+            <input type="text" id="input_cnpj" placeholder="Ex: 00.000.000/0001-00">
             <p class="textoinpt"><i>Senha</i></p>
             <input type="password" id="input_senha">
-            <p class="menor">Não tem login ainda?</p>
-        </div>
+            <button class="botaoL" onclick="login()"><b>LOGIN</b></button>
+
+            <div class="cadastro"> <!-- Cadastro -->
+                <p class="menor">Não tem login ainda?</p>
+                <button class="botaoC" onclick="cadastro()"><b>Cadastre-se</b></button>
+            </div><!-- Cadastro -->
+            
+        </div> <!-- Box -->
+
     </div>
 </body>
+<script>
+    function pag_i(){
+        window.location.href = "home.html"
+    }
+    function login(){
+        window.location.href = ""
+    }
+    function cadastro(){
+        window.location.href = "cadastro.html"
+    }
+</script>
 </html>
