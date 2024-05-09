@@ -7,21 +7,22 @@ html{
     min-height: 100%;
 }
 /* verde: rgb(31, 158, 26); */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     width: 100%;
     display: flex;
     flex-direction: column;
     line-height: 1.6; /* Define a altura da linha para melhor legibilidade */
+    background-color: black;
 }
+
 /*-----------------------------------------------------------------------------------------------------*
 /*-----------------------------------------------------------------------------------------------------*/
+
 .navbar{
     width: 100%;
     height: 70px;
@@ -54,8 +55,6 @@ body {
     color: rgb(22, 105, 19);
 }
 
-
-
 .botao{
     font-family: Poppins;
     background-color:rgb(31, 158, 26);
@@ -85,10 +84,16 @@ body {
 }
 
 .perguntas{
+    font-size: 70px;
     color: white;
-    font-size: 50px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    text-shadow: -2px 1px 3px rgba(0, 0, 0, 0.47);
 }
+.perguntas2{
+    font-size: 50px;
+    color: white;
+    text-shadow: -2px 1px 3px rgba(0, 0, 0, 0.47);
+}
+
 .botao2{
     font-family: Poppins;
     background-color:rgb(255, 255, 255);
@@ -102,6 +107,7 @@ body {
 .botao2:hover {
     background-color: rgb(214, 210, 210); /* Nova cor de fundo */
 }
+
 /*-----------------------------------------------------------------------------------------------------*/
 
 .pagina1_1{
@@ -121,6 +127,7 @@ body {
 .paragrafo1pg1 span{
     color: rgb(22, 105, 19);
 }
+
 .imagempg1{
     width: 400px;
     height: 300px;
@@ -130,10 +137,13 @@ body {
 }
 
 /*-----------------------------------------------------------------------------------------------------*/
+
 .pagina2{
-    width: 100%;
+    width: 90%;
     height: 250px;
     background-color: rgb(31, 158, 26);
+    border-radius: 33px;
+
 
     display: flex;
     flex-direction: column;
@@ -151,7 +161,7 @@ body {
 
 .card{
     
-    width: 400px;
+    width: 300px;
     height: 100px;
     background-color: white;
     border-radius: 33px;
@@ -165,6 +175,11 @@ body {
         -webkit-box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56);
         -moz-box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.56); */
 }
+.card:hover{
+    width: 320px;
+    height: 120px;
+}
+
 .titulopg2{
     font-size: 40px;
     color: white;
@@ -175,13 +190,114 @@ body {
 }
 
 .logopg2{
-    height: 100%;
+    height: 90%;
+    border-radius: 50px;
 }
+
 
 /*-----------------------------------------------------------------------------------------------------*/
 
 .pagina3{
     width: 100%;
-    height: 400px;
+    height: 500px;
+
+    background-image: url("../arquivos/img/fundologin\ -\ Copia.png");
+    background-size: cover;
+    justify-content: center;
+
+    padding-top: 70px;
+}
+.titulo_pg3{
+    font-size: 90px;
+    width: 100%;
+    color: white;
+    text-shadow: -2px 1px 3px rgba(0, 0, 0, 0.47);
+
+    text-align: center;
+}
+.titulo2_pg3{
+    font-size: 40px;
+    width: 100%;
+    color: white;
+    text-shadow: -2px 1px 3px rgba(0, 0, 0, 0.47);
+
+    text-align: center;
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+.pag4{
+    width: 100%;
+    height: 1000px;
     background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    padding-top: 60px;
+    padding-left: 40px;
+}
+
+.titulo_pg4{
+    font-size: 60px;
+    margin-top: 80px;
+}
+.titulo2_pg4{
+    font-size: 60px;
+    color: rgb(31, 158, 26);
+}
+
+.conteudo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin-top: 70px;
+    margin-bottom: 70px;
+    
+}
+.lista{
+    margin-right: 10px;
+}
+.texto_pg4{
+    background-color: rgb(31, 158, 26);
+    border-radius: 33px;
+    padding: 10px;
+
+    font-size: 17px;
+    text-align: center;
+    color: white;
+    width: 40%;
+}
+.ponto{
+    font-size: 25px;
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+.pagina_5{
+    width: 100%;
+    height: 700px;
+    background-image: url(../arquivos/img/fundo_pag5.jpg);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+.footer{
+    width: 100%;
+    height: 300px;
+    background-color: rgb(24, 24, 24);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
