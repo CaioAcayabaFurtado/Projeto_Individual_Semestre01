@@ -291,7 +291,7 @@ body {
 
 /*-----------------------------------------------------------------------------------------------------*/
 
-.footer{
+/* .footer{
     width: 100%;
     height: 300px;
     background-color: rgb(24, 24, 24);
@@ -300,4 +300,90 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+} */
+
+
+.footer{
+    display: flex;
+    justify-content: space-around;
+
+    width: 100%;
+    height: 310px;
+    background-color: #696969;
+    font-family: Poppins;
+}
+.agencia{
+    display: grid;
+    padding: 10px;
+    width: 100%;
+}
+.agencia h1{
+    justify-self: center;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.icones{
+    height: 20px;
+    justify-self: flex-start;
+    display: flex;
+    align-items: center;
+    margin-left: 190px;
+}
+.ctt{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+.icons{
+    width: 50px;
+}
+.material-symbols-outlined {
+    padding: 30px;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 500,
+  'GRAD' 0,
+  'opsz' 24
+}
+.fale{
+    width: 100%;
+}
+.fale h1{
+    font-size: 25px;
+    font-weight: 600;
+    margin: 10px;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+.enviar{
+    display: flex;
+    flex-direction: column;
+}
+.email{
+    margin: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: #ffff solid;
+    margin-left: 100px;
+}
+.mensg{
+    margin: 10px;
+    width: 305px;
+    height: 150px;
+    border-radius: 5px;
+    font-family: Jakarts;
+    margin-left: 100px;
+}
+.final{
+    display: flex;
+    background-color: #000000;
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+.final h2{
+    font-family: Jakarts;
+    color: #ffff;
 }
