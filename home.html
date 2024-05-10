@@ -30,28 +30,28 @@
         
         <div class="pagina3"><!-- Pagina 3 / Frase -->
             <p class="titulo_pg3"><b>Mais de 60% dos viajantes </b></p>
-            <p class="titulo2_pg3">estão dispostos a pagar mais por essa experiência.</p>
+            <p class="titulo2_pg3">estão dispostos a pagar mais por essas experiências...</p>
         </div><!-- Pagina 3-->
 
         
         <div class="pag4"> <!-- Pagina 4 / Como seguir o ramo? -->
             <div class="pagina2"><!-- Pagina-2 / Destinos -->
-                <p class="titulopg2"><b>Algumas agências para conhecer:</b></p>
+                <p class="titulo_pg2"><b>Algumas agências para conhecer:</b></p>
                 <div class="carrossel">
                     <div class="card" onclick="card1()">
-                        <img src="arquivos/img/logo eco adventure.png" alt="" class="logopg2">
+                        <img src="arquivos/img/logo eco adventure.png" alt="" class="logo_pg2">
     
                     </div>
                     <div class="card" onclick="card2()">
-                        <img src="arquivos/img/vivejar_logo.jpeg" alt="" class="logopg2">
+                        <img src="arquivos/img/vivejar_logo.jpeg" alt="" class="logo_pg2">
                     </div>
                     <div class="card" onclick="card3()">
-                        <img src="arquivos/img/logo adventure.webp" alt="" class="logopg2">
+                        <img src="arquivos/img/logo adventure.webp" alt="" class="logo_pg2">
                     </div>
                 </div>
             </div><!-- Pagina-2 -->
             <div>
-                <p class="titulo_pg4">Como seguir no ramo?</p>
+                <p class="titulo_pg4">Mas... como seguir no ramo?</p>
                 <p class="titulo2_pg4">O que faz de uma empresa ser "eco"?</p>
                 <div class="conteudo"> <!-- Conteudo -->
                     <div class="lista"><!-- Lista -->
@@ -66,55 +66,43 @@
             </div>
         </div><!-- Página 4 -->
 
-        <div class="pagina_5">
+        <div class="pagina_5"><!--Pagina 5 / Calculadora-->
+            <h1 class="titulo_pg5">Então para começar, que tal se preocupar um pouco com o descarte do lixo?</h1>
+            <p class="texto_pg5">Vamos fazer uma média de quanto lixo orgânico sua empresa produz em um mês.</p>
+            <p class="texto2_pg5"><i>Crie a sua conta aqui no site e faça esse cálculo!</i></p>
+            <button class="botao_c">CADASTRE-SE</button>
+        </div><!--Pagina 5-->
 
-        </div>
-
-        
-            <div id="Contato" class="footer">
-                <div class="agencia">
-                    <h1>Nossa agência</h1>
-                    <div class="icones">
-                        <span class="material-symbols-outlined">
-                            mail
-                        </span>
-                        <p>Email: safesoy@sptech.school</p>
-                    </div>
-                    <div class="icones">
-                        <span class="material-symbols-outlined">
-                            call
-                        </span>
-                        <p>Telefone: (**) ****-****</p>
-                    </div>
-                    <div class="icones">
-                        <span class="material-symbols-outlined">
-                            location_on
-                        </span>
-                        <p>Endereço: Rua ******, 000</p>
-                    </div>
-                    <div class="ctt">
-                        <img src="src/img/rectangle18.svg" alt="" class="icons">
-                        <img src="src/img/image2.svg" alt="" class="icons">
-                        <img src="src/img/image1.svg" alt="" class="icons">
-                        <img src="src/img/image8.svg" alt="" class="icons">
-                    </div>
+        <div class="footer"> <!-- Footer -->
+            <div class="dev">
+                <h1>Desenvolvedor:</h1>
+                <div class="perfil">
+                    <div class="foto"></div>
+                    <p class="nome"><b>Caio Acayaba Furtado</b></p>
                 </div>
-                <div class="fale">
-                    <h1>Fale conosco</h1>
-                    <div class="enviar">
-                        <input type="text" placeholder="Email:" class="email">
-                        <textarea class="mensg" placeholder="Mensagem:" id="" cols="30" rows="15"></textarea>
-                    </div>
+                <div class="social">
+                    <img onclick="git()" src="arquivos/img/git.png" alt="" class="logoo">
+                    <img onclick="trello()" src="arquivos/img/trello.png" alt="" class="logoo">
                 </div>
             </div>
-            <div class="final">
-                <h2>Copyright© 2024 todos direitos reservados</h2>
+            <div class="fale">
+                <h1>Fale conosco:</h1>
+                <div class="enviar">
+                    <input type="text" placeholder="Email:" class="email">
+                    <textarea class="mensg" placeholder="Mensagem:" id="" cols="30" rows="15"></textarea>
+                </div>
             </div>
-        
+        </div> <!-- Footer -->
 
+        <div class="final"> <!-- Final -->
+            <h2>Copyright© 2024 todos direitos reservados</h2>
+        </div><!-- Final -->
+        
     </div><!-- Container -->
 </body>
+
 <script>
+
     function login(){
         window.location.href = "login.html"
     }
@@ -127,5 +115,12 @@
     function card3(){
         window.location.href = "https://www.adventureclub.com.br/"
     }
+    function git(){
+        window.location.href = "https://github.com/CaioAcayabaFurtado/Projeto_Individual_Semestre01.git"
+    }
+    function trello(){
+        window.location.href = "https://trello.com/invite/b/7WXEmuBd/ATTI64934b86f703f11c5cf0f443dca706213C2483FC/projeto-individual"
+    }
+
 </script>
 </html>
