@@ -59,8 +59,9 @@ body {
 .botao{
     width: 130px;
     height: 30px;
-    font-family: Poppins;
     background-color:rgb(31, 158, 26);
+    
+    font-family: Poppins;
     color: white;
     
     margin-right: 20px;
@@ -74,7 +75,7 @@ body {
 
 .pagina{
     width: 100%;
-    height: 650px;
+    height: 1050px;
     background-image: url("../arquivos/img/fundologin.png");
     background-size: cover;
 
@@ -85,7 +86,7 @@ body {
 
 .box{
     width: 400px;
-    height: 300px;
+    height: 800px;
     background-color: rgb(255,255,255, 0.9);
     border-radius: 25px;
 
@@ -111,8 +112,8 @@ input{
     color: white;
     text-align: center;
     
-    border-radius: 33px;
     border: none;
+    border-radius: 33px;
 }
 input::placeholder{
     font-family: Poppins;
@@ -123,7 +124,7 @@ input:hover{
     background-color: rgb(31, 158, 26);
 }
 
-.botaoL{
+.botaoC{
     width: 130px;
     height: 30px;
     font-family: Poppins;
@@ -134,7 +135,7 @@ input:hover{
     border-radius: 50px;
     margin-top: 10px;
     }
-.botaoL:hover {
+.botaoC:hover {
     background-color: rgb(22, 105, 19); /* Nova cor de fundo */
 }
 
@@ -151,15 +152,15 @@ input:hover{
     flex-direction: row;    
 }
 
-.botaoC{
+.botaoL{
     font-family: Poppins;
     color: rgb(22, 105, 19);
-    width: 90px;
+    width: 50px;
     border: none;
     border-radius: 20px;
 
 }
-.botaoC:hover{
+.botaoL:hover{
     background-color: rgb(206, 206, 206);
 }
 

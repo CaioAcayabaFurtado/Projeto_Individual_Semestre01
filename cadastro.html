@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+
+    <div class="navbar"><!-- NavBar -->
+        <div class="nome">
+            <img class="logo" src="arquivos/img/arrows.png" alt="">
+            <p><b class="titulo">Rota <span>Verde</span></b> <i>Ecoturismo e Conservação Ambiental</i></p>
+        </div>
+        <button class="botao" onclick="pag_i()">Página Inicial</button>
+    </div><!-- NavBar -->
+
+    <div class="pagina">
+
+        <div class="box"> <!-- Box / Informaçoes -->
+
+            <p class="tituloL"><b>Insira seus dados:</b></p>
+
+            <p class="textoinpt"><i>Nome de usuário</i></p> <!-- Máximo 45 caracteres -->
+            <input type="text" id="input_nome">
+            <p class="textoinpt"><i>CNPJ</i></p> <!-- Validação 14 digitos-->
+            <input type="text" id="input_cnpj" placeholder="Ex: 00.000.000/0001-00">
+            <br>
+            <p class="textoinpt"><i>E-mail</i></p> <!-- Tem q ter @ -->
+            <input type="text" id="input_email">
+            <p class="textoinpt"><i>Telefone</i></p> <!-- Máximo x digitos-->
+            <input type="text" id="input_telefone" placeholder="( )_________">
+            <br>
+            <p class="textoinpt"><i>CEP</i></p> <!-- Máximo 45 caracteres -->
+            <input type="text" id="input_cep" placeholder="Ex: 12345-678">
+            <p class="textoinpt"><i>Número</i></p> <!-- Máximo 45 caracteres -->
+            <input type="text" id="input_numero">
+            <p class="textoinpt"><i>Conplemento</i></p> <!-- Máximo 45 caracteres -->
+            <input type="text" id="input_complemento">
+            <br>
+            <p class="textoinpt"><i>Criar Senha</i></p> <!-- Minimo 7 digitos -->
+            <input type="password" id="input_senha">
+            <p class="textoinpt"><i>Confirmar Senha</i></p> <!-- Tem que ser igual a de cima -->
+            <input type="password" id="input_senha2">
+
+
+            <button class="botaoC" onclick="login()"><b>LOGIN</b></button>
+
+            <div class="cadastro"> <!-- Login -->
+                <p class="menor">Já se cadastrou? Faça o </p>
+                <button class="botaoL" onclick="login()"><b>Login!</b></button>
+            </div><!-- Login -->
+            
+        </div> <!-- Box -->
+
+    </div>
+
+</body>
+
+<script>
+
+    function pag_i(){
+        window.location.href = "home.html"
+    }
+    function login(){
+        window.location.href = "login.html"
+    }
+
+</script>
+</html>
