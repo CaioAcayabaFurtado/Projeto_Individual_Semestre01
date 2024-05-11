@@ -45,7 +45,7 @@
             <input type="password" id="input_senha2">
 
 
-            <button class="botaoC" onclick="login()"><b>LOGIN</b></button>
+            <button class="botaoC" onclick="cadastrar()"><b>CADASTRAR</b></button>
 
             <div class="cadastro"> <!-- Login -->
                 <p class="menor">Já se cadastrou? Faça o </p>
@@ -54,8 +54,8 @@
             
         </div> <!-- Box -->
 
-    </div>
-
+        
+    </div>    
 </body>
 
 <script>
@@ -65,6 +65,42 @@
     }
     function login(){
         window.location.href = "login.html"
+    }
+
+    function cadastrar(){
+        var nome = input_nome.value;
+        var cnpj = Number (input_cnpj.value);
+        var email = input_email.value;
+        var telefone = Number (input_telefone.value);
+        var cep = Number (input_cep.value);
+        var numero = Number (input_numero.value);
+        var complemento = input_complemento.value;
+        var senha = Number(input_senha.value);
+        var senha2 = input_senha2.value;
+
+        if (nome == "" || cnpj == 0 || email == "" || telefone == 0 || cep == 0 || numero == 0 || complemento == "" || senha == "" || senha2 == ""){
+            alert (`Preencha TODOS os campos!`);
+        } else if (nome.length > 45){
+            alert (`O nome não pode passar de 45 caractéres!`);
+        } else if (cnpj.length > 14){
+            alert (`O CNPJ não pode conter mais de 14 caractéres (para preencher não utilize pontos, traços ou barras).`);
+        } else if (nome.indexOf("@") > 0){
+            alert (`Insira o e-mail corretamente!`);
+        } else if (telefone.length > 11){
+            alert (`O telefone não pode passar de 11 caractéres!`);
+        } else if (cep.length > 8){
+            alert (`O CEP não pode passar de 8 caractéres!`);
+        }  else if (numero.length > 10){
+            alert (`O número não pode passar de 10 caractéres!`);
+        } else if (complemento.length > 45){
+            alert (`O complemento não pode passar de 45 caractéres!`);
+        } else if (senha.length != 5){
+            alert (`A senha deve conter exatamente 5 dígitos!`);
+        } else if (senha2 != senha){
+            alert (`Confirme a senha corretamente!`);
+        } else{
+            
+        }
     }
 
 </script>
