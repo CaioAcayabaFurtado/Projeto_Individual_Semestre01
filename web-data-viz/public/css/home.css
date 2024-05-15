@@ -170,6 +170,8 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
+    transition: 400ms;
 }
 .card:hover{
     /* width: 320px;

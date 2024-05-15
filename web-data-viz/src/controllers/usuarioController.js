@@ -20,25 +20,27 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
-                                    res.json({
-                                        id: resultadoAutenticar[0].id,
-                                        nome: resultadoAutenticar[0].nome,
-                                        cnpj: resultadoAutenticar[0].cnpj,
-                                        email: resultadoAutenticar[0].email,
-                                        telefone: resultadoAutenticar[0].telefone,
-                                        cep: resultadoAutenticar[0].cep,
-                                        numero: resultadoAutenticar[0].numero,
-                                        complemento: resultadoAutenticar[0].complemento,
-                                        senha: resultadoAutenticar[0].senha,
-                                        // aquarios: resultadoAquarios - O que é isso?
-                                    });
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
-                            })
+                        res.status(200).json(resultadoAutenticar);
+
+                        // aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
+                        //     .then((resultadoAquarios) => {
+                        //         if (resultadoAquarios.length > 0) {
+                        //             res.json({
+                        //                 id: resultadoAutenticar[0].id,
+                        //                 nome: resultadoAutenticar[0].nome,
+                        //                 cnpj: resultadoAutenticar[0].cnpj,
+                        //                 email: resultadoAutenticar[0].email,
+                        //                 telefone: resultadoAutenticar[0].telefone,
+                        //                 cep: resultadoAutenticar[0].cep,
+                        //                 numero: resultadoAutenticar[0].numero,
+                        //                 complemento: resultadoAutenticar[0].complemento,
+                        //                 senha: resultadoAutenticar[0].senha,
+                        //                 aquarios: resultadoAquarios - O que é isso?
+                        //             });
+                        //         } else {
+                        //             res.status(204).json({ aquarios: [] });
+                        //         }
+                        //     })
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
