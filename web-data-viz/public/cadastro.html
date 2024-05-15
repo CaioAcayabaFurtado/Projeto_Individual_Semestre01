@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Rota Verde | Cadastro</title>
+
+  <script src="./js/sessao.js"></script>
+
+  <link rel="stylesheet" href="css/cadastro.css" />
+  <link rel="icon" href="./assets/icon/arrows.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+</head>
+
+<body>
+
+  <div class="navbar"><!-- NavBar -->
+    <div class="nome">
+      <img class="logo" src="css/img/arrows.png" alt="">
+      <p><b class="titulo">Rota <span>Verde</span></b> <i>Ecoturismo e Conservação Ambiental</i></p>
+    </div>
+    <button class="botao" onclick="pag_i()">Página Inicial</button>
+  </div><!-- NavBar -->
+
+  <div class="pagina">
+
+    <div class="box"> <!-- Box / Informaçoes -->
+
+      <p class="tituloL"><b>Insira seus dados:</b></p>
+      <p class="textoinpt"><i>Nome de usuário</i></p> <!-- Máximo 45 caracteres -->
+      <input type="text" id="input_nome">
+      <p class="textoinpt"><i>CNPJ</i></p> <!-- Validação 14 digitos-->
+      <input type="text" id="input_cnpj" placeholder="Ex: 00.000.000/0001-00">
+      <br>
+      <p class="textoinpt"><i>E-mail</i></p> <!-- Tem q ter @ -->
+      <input type="text" id="input_email">
+      <p class="textoinpt"><i>Telefone</i></p> <!-- Máximo 15 digitos-->
+      <input type="text" id="input_telefone" placeholder="( )_________">
+      <br>
+      <p class="textoinpt"><i>CEP</i></p> <!-- Máximo 8 caracteres -->
+      <input type="text" id="input_cep" placeholder="Ex: 12345-678">
+      <p class="textoinpt"><i>Número</i></p> <!-- Máximo 45 caracteres -->
+      <input type="text" id="input_numero">
+      <p class="textoinpt"><i>Complemento</i></p> <!-- Máximo 45 caracteres -->
+      <input type="text" id="input_complemento">
+      <br>
+      <p class="textoinpt"><i>Criar Senha</i></p> <!-- Minimo 7 digitos -->
+      <input type="password" id="input_senha">
+      <p class="textoinpt"><i>Confirmar Senha</i></p> <!-- Tem que ser igual a de cima -->
+      <input type="password" id="input_senha2">
+      <button class="botaoC" onclick="cadastrar()"><b>CADASTRAR</b></button>
+
+      <div class="cadastro"> <!-- Login -->
+        <p class="menor">Já se cadastrou? Faça o </p>
+        <button class="botaoL" onclick="login()"><b>Login!</b></button>
+      </div><!-- Login -->
+
+    </div> <!-- Box -->
+
+  </div>
+</body>
+
+</html>
+
+<script>
+  function cadastrar() {
+    aguardar();
+
+    var nome = input_nome.value;
+    var cnpj = Number(input_cnpj.value);
+    var email = input_email.value;
+    var telefone = Number(input_telefone.value);
+    var cep = Number(input_cep.value);
+    var numero = Number(input_numero.value);
+    var complemento = input_complemento.value;
+    var senha = Number(input_senha.value);
+    var senha2 = input_senha2.value;
+
+    if (nome == "" || cnpj == 0 || email == "" || telefone == 0 || cep == 0 || numero == 0 || complemento == "" || senha == "" || senha2 == "") {
+      alert(`Preencha TODOS os campos!`);
+    } else if (nome.length > 45) {
+      alert(`O nome não pode passar de 45 caractéres!`);
+    } else if (cnpj.length > 14) {
+      alert(`O CNPJ não pode conter mais de 14 caractéres (para preencher não utilize pontos, traços ou barras).`);
+    } else if (email.indexOf("@") < 1) {
+      alert(`Insira o e-mail corretamente!`);
+    } else if (telefone.length > 15) {
+      alert(`O telefone não pode passar de 11 caractéres! (para preencher não utilize pontos, traços ou barras).`);
+    } else if (cep.length > 8) {
+      alert(`O CEP não pode passar de 8 caractéres! (para preencher não utilize pontos, traços ou barras).`);
+    } else if (numero.length > 10) {
+      alert(`O número não pode passar de 10 caractéres!`);
+    } else if (complemento.length > 45) {
+      alert(`O complemento não pode passar de 45 caractéres!`);
+    } else if (senha.length > 5) {
+      alert(`A senha deve conter mais de 5 dígitos!`);
+    } else if (senha2 != senha) {
+      alert(`Confirme a senha corretamente!`);
+    } else {
+
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nome,
+          cnpjServer: cnpj,
+          emailServer: email,
+          telefoneServer: telefone,
+          cepServer: cep,
+          numeroServer: numero,
+          complementoServer: complemento,
+          senhaServer: senha
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            cardErro.style.display = "block";
+
+            mensagem_erro.innerHTML =
+              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+            setTimeout(() => {
+              window.location = "login.html";
+            }, "2000");
+
+            limparFormulario();
+            finalizarAguardar();
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
+        });
+
+      return false;
+    }
+
+    // function listar() {
+    //   fetch("/empresas/listar", {
+    //     method: "GET",
+    //   })
+    //     .then(function (resposta) {
+    //       resposta.json().then((empresas) => {
+    //         empresas.forEach((empresa) => {
+    //           listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+    //         });
+    //       });
+    //     })
+    //     .catch(function (resposta) {
+    //       console.log(`#ERRO: ${resposta}`);
+    //     });
+    // }
+
+    // function sumirMensagem() {
+    //   cardErro.style.display = "none";
+    // }
+
+    }
+</script>
