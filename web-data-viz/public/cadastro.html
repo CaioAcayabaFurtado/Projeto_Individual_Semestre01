@@ -70,6 +70,14 @@
 </html>
 
 <script>
+
+    function pag_i(){
+        window.location.href = "index.html"
+    }
+    function login(){
+        window.location.href = "login.html"
+    }
+
   function cadastrar() {
     aguardar();
 
@@ -130,8 +138,7 @@
           if (resposta.ok) {
             cardErro.style.display = "block";
 
-            mensagem_erro.innerHTML =
-              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+            alert ("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
             setTimeout(() => {
               window.location = "login.html";
