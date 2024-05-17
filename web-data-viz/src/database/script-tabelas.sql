@@ -6,9 +6,9 @@
 comandos para mysql server
 */
 
-CREATE DATABASE aquatech;
-
-USE aquatech;
+CREATE DATABASE RotaVerde;
+drop database RotaVerde;
+USE RotaVerde;
 
 CREATE TABLE empresa (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -16,13 +16,19 @@ CREATE TABLE empresa (
 	cnpj CHAR(14)
 );
 
+
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
+    cnpj varchar (14),
 	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+    telefone varchar (15),
+    cep char (8),
+    numero varchar (10),
+    complemento varchar (45),
+	senha VARCHAR(50)
+	-- fk_empresa INT,
+	-- FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
 CREATE TABLE aviso (
@@ -33,15 +39,13 @@ CREATE TABLE aviso (
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 
+
 create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	descricao VARCHAR(300),
 	fk_empresa INT,
 	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
-
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
 create table medida (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -58,5 +62,5 @@ create table medida (
 insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
 insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
 
-select * from empresa;
-select * from aquario;
+select * from usuario;
+truncate table usuario;

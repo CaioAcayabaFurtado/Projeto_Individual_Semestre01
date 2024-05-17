@@ -58,7 +58,7 @@
         window.location.href = "cadastro.html"
     }
 
-    function entrar() {
+    function login() {
         // aguardar();
 
         var emailVar = input_email.value;
@@ -67,12 +67,10 @@
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
             alert ("Preencha TODOS os campos corretamente!");
-            finalizarAguardar();
+            // finalizarAguardar();
             return false;
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+       
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
