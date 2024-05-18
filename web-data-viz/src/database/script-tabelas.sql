@@ -1,20 +1,19 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql server
-*/
 
 CREATE DATABASE RotaVerde;
 drop database RotaVerde;
 USE RotaVerde;
 
+select * from usuario;
+truncate table usuario;
+
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------
+/*
 CREATE TABLE empresa (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	razao_social VARCHAR(50),
 	cnpj CHAR(14)
 );
+*/
 
 
 CREATE TABLE usuario (
@@ -31,6 +30,7 @@ CREATE TABLE usuario (
 	-- FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
+
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
@@ -40,27 +40,30 @@ CREATE TABLE aviso (
 );
 
 
-create table aquario (
+create table historico (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+	descricao VARCHAR(300)
+	-- fk_empresa INT,
+	-- FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
+
 
 create table medida (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
+	-- dht11_umidade DECIMAL,
+	-- dht11_temperatura DECIMAL,
+	-- luminosidade DECIMAL,
+	-- lm35_temperatura DECIMAL,
+    resultado VARCHAR (45),
 	chave TINYINT,
 	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
+	fk_historico INT,
+	FOREIGN KEY (fk_historico) REFERENCES historico(id)
 );
 
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
 
-select * from usuario;
-truncate table usuario;
+-- insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
+-- insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
+
+
+

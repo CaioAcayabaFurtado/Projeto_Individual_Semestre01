@@ -2,11 +2,11 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/icon/arrows.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Tempo Real</title>
+    <title>Rota Verde | Tempo Real</title>
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
@@ -20,7 +20,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
+<body onload="validarSessao(), exibirHistorico(),  atualizacaoPeriodica()">
 
     <div class="janela">
 
@@ -33,7 +33,7 @@
             </div>
 
             <div class="btn-nav">
-                <h3>Aquários</h3>
+                <h3>Histórico</h3>
             </div>
 
             <div class="btn-nav-white">
@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-            <div class="cards" id="cardAquarios">
+            <div class="cards" id="cardHistorico">
 
             </div>
 
@@ -97,16 +97,16 @@
 
 <script>
 
-    function exibirAquarios() {
-        JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
-            document.getElementById("cardAquarios").innerHTML += `
-                    <div class="card-aquario">
-                        <div class="title-aquario">
+    function exibirHistorico() {
+        JSON.parse(sessionStorage.HISTORICO).forEach(item => {
+            document.getElementById("cardHistorico").innerHTML += `
+                    <div class="card-historico">
+                        <div class="title-historico">
                             <h1>${item.descricao}</h1>
                         </div>
-                        <div class="desc-aquario">
+                        <div class="desc-historico">
                         <div class="temperatura">
-                            <p id="temp_aquario_${item.id}">-°C</p>
+                            <p id="temp_historico_${item.id}">-°C</p>
                         </div>
                         <div class="cor-alerta" id="card_${item.id}"></div>
                     </div>
