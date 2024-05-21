@@ -71,24 +71,24 @@
 
 <script>
 
-    function pag_i(){
-        window.location.href = "index.html"
-    }
-    function login(){
-        window.location.href = "login.html"
-    }
+  function pag_i() {
+    window.location.href = "index.html"
+  }
+  function login() {
+    window.location.href = "login.html"
+  }
 
   function cadastrar() {
     aguardar();
 
     var nome = input_nome.value;
-    var cnpj = Number(input_cnpj.value);
+    var cnpj = input_cnpj.value;
     var email = input_email.value;
-    var telefone = Number(input_telefone.value);
-    var cep = Number(input_cep.value);
-    var numero = Number(input_numero.value);
+    var telefone = input_telefone.value;
+    var cep = input_cep.value;
+    var numero = input_numero.value;
     var complemento = input_complemento.value;
-    var senha = Number(input_senha.value);
+    var senha = input_senha.value;
     var senha2 = input_senha2.value;
 
     if (nome == "" || cnpj == 0 || email == "" || telefone == 0 || cep == 0 || numero == 0 || complemento == "" || senha == "" || senha2 == "") {
@@ -138,7 +138,7 @@
           if (resposta.ok) {
             // cardErro.style.display = "block";
 
-            alert ("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+            alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
             setTimeout(() => {
               window.location = "login.html";
@@ -178,5 +178,5 @@
     //   cardErro.style.display = "none";
     // }
 
-    }
+  }
 </script>
