@@ -51,16 +51,25 @@ body{
 
 .dash-right .avisos .div-form input {
   width: 95%;
-  border-radius: 5px;
-  border: 2px solid rgb(22, 105, 19);
+  border-radius: 22px;
+  /* border: 2px solid rgb(22, 105, 19); */
+  border: none;
+  font-family: Poppins;
+  margin-top: 10px;
 
 }
 
 .dash-right .avisos .div-form textarea {
   width: 95%;
-  border: 2px solid rgb(22, 105, 19);
+  /* border: 2px solid rgb(22, 105, 19); */
+  border: none;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 15px;
+  font-family: Poppins;
+  padding-left: 15px;
+  padding-top: 15px;
+  margin-top: 10px;
+
 }
 
 .dash-right .avisos .div-form button {
@@ -73,6 +82,10 @@ body{
   color: white;
   background-color: rgb(22, 105, 19);
   width: 120px;
+}
+
+.dash-right .avisos .div-form button:hover {
+  background-color: rgb(17, 83, 15);
 }
 
 .publicacao-btn-editar {
@@ -160,7 +173,7 @@ body{
 .pergunta{
   width: 80%;
   height: 100px;
-  background-color: rgb(255, 255, 255, 255.8);
+  background-color: rgb(255, 255, 255, 0.95);
   color: rgb(0, 0, 0);
   border-radius: 33px;
 
@@ -494,7 +507,7 @@ canvas {
 
 .btn-nav-white {
   width: 60%;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(240, 235, 235);
   border: none;
   border-radius: 18px;
   text-align: center;
@@ -515,6 +528,7 @@ canvas {
   color: rgb(0, 0, 0);
   margin: 0;
   padding: 0;
+  transition: 400ms;
 }
 
 .btn-nav-white:hover{

@@ -164,6 +164,7 @@
 
 <script>
 
+    var total = 0;
     function avaliar() {
 
         // Questionario - Inicio
@@ -237,18 +238,52 @@
             } else if (select5 == "5") {
                 pontos = pontos + 5;
             }
+            total = 0
+            total = pontos / 5;
+            div_msg.innerHTML = `Sua pontuação foi: ${total}, agora você pode vizualizala na página "histórico".`;
+            cadastrar()
         }
 
-        var total = pontos / 5;
-        div_msg.innerHTML = `Sua pontuação foi: ${total}, agora você pode vizualizala na página "histórico".`;
     }
+
     // Questionario - Fim
     // Registro - Inicio
 
+    function cadastrar() {
+    
 
+      // Enviando o valor da nova input
+      fetch("/usuarios/historico", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          totalServer: total,
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
 
-    // Registro - Fim
+          if (resposta.ok) {
+            // cardErro.style.display = "block";
 
+            alert ("Sua nota foi cadastrada no histórico");
+
+            limparFormulario();
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro da sua avaliação!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
+        });
+
+      return false;
+    }
 
 </script>
 
