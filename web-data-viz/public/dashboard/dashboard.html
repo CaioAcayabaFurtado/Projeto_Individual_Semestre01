@@ -180,7 +180,7 @@
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/medidas/ultimas/${idHistorico}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/historico/historico/${idHistorico}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -251,7 +251,7 @@
             config
         );
 
-        setTimeout(() => atualizarGrafico(idHistorico, dados, myChart), 2000);
+        setTimeout(() => atualizarGrafico(idHistorico, resultado, myChart), 2000);
     }
 
 
@@ -260,11 +260,11 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(idHistorico, dados, myChart) {
+    function atualizarGrafico(idHistorico, resultado, myChart) {
 
 
 
-        fetch(`/medidas/tempo-real/${idHistorico}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/historco/historico/${idHistorico}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 

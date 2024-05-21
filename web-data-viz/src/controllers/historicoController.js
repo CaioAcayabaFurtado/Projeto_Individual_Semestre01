@@ -1,11 +1,11 @@
 var historicoModel = require("../models/historicoModel");
 
-function buscarHistoricoPorEmpresa(req, res) {
+function buscarHistoricoPorUsuario(req, res) {
   // var idUsuario = req.params.idUsuario;
   var idUsuario = req.params.id;
 
 
-  historicoModel.buscarHistoricoPorEmpresa(idUsuario).then((resultado) => {
+  historicoModel.buscarHistoricoPorUsuario(idUsuario).then((resultado) => {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
@@ -39,7 +39,7 @@ function historico(req, res) {
               function (erro) {
                   console.log(erro);
                   console.log(
-                      "\nHouve um erro ao realizar o cadastro do total! Erro: ",
+                      "\nHouve um erro ao realizar o cadastro do resultado! Erro: ",
                       erro.sqlMessage
                   );
                   res.status(500).json(erro.sqlMessage);
@@ -49,6 +49,6 @@ function historico(req, res) {
 }
 
 module.exports = {
-  buscarHistoricoPorEmpresa,
+  buscarHistoricoPorUsuario,
   historico
 }

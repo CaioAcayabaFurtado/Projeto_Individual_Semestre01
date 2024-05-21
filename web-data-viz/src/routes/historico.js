@@ -3,8 +3,8 @@ var router = express.Router();
 
 var historicoController = require("../controllers/historicoController");
 
-router.get("/:empresaId", function (req, res) {
-  historicoController.buscarHistoricoPorEmpresa(req, res);
+router.get("/:idHistorico", function (req, res) {
+  historicoController.buscarHistoricoPorUsuario(req, res);
 });
 
 router.post("/historico", function (req, res) {

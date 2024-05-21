@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarHistoricoPorEmpresa(id) {
+function buscarHistoricoPorUsuario(id) {
 
   var instrucaoSql = `SELECT * FROM historico a WHERE fk_usuario = ${id}`;
 
@@ -20,6 +20,6 @@ function historico(resultado, id) {
 
 
 module.exports = {
-  buscarHistoricoPorEmpresa,
+  buscarHistoricoPorUsuario,
   historico
 }
