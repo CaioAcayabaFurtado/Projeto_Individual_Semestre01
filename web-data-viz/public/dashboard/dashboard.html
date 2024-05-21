@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -64,16 +66,20 @@
 
         </div>
 
-        <!-- <div class="dash">
+        <div class="dash">
             <div id="alerta">
             </div>
 
             <div class="btns-dash" id="btnHistorico">
-                O gráfico é chamado de acordo com o id (fk_historico) do banco 
+                <!-- O gráfico é chamado de acordo com o id (fk_historico) do banco  -->
             </div>
             <div id="graficos">
             </div>
-        </div> -->
+        </div> 
+        <!-- <canvas id="myChart"></canvas> -->
+        
+        
+
     </div>
 
 
@@ -82,8 +88,8 @@
 </html>
 
 <script>
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     let proximaAtualizacao;
 
     window.onload = exibirHistoricoDoUsuario();
@@ -120,7 +126,7 @@
     function alterarTitulo(idHistorico) {
         var tituloHistorico = document.getElementById(`tituloHistorico${idHistorico}`)
         var descricao = JSON.parse(sessionStorage.HISTORICO).find(item => item.id == idHistorico).descricao;
-        tituloHistorico.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>" + descricao + "</span>"
+        tituloHistorico.innerHTML = "Últimas avaliações:"
     }
 
     function exibirHistorico(idHistorico) {
@@ -206,17 +212,10 @@
         let dados = {
             labels: labels,
             datasets: [{
-                label: 'Umidade',
+                label: 'Resultado',
                 data: [],
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            },
-            {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
                 tension: 0.1
             }]
         };
@@ -229,8 +228,7 @@
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.temperatura);
+            dados.datasets[0].data.push(registro.resultado);
         }
 
         console.log('----------------------------------------------')
@@ -294,11 +292,8 @@
                         dados.labels.shift(); // apagar o primeiro
                         dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
 
-                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                        dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-                        dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                        dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+                        dados.datasets[0].data.shift();  // apagar o primeiro 
+                        dados.datasets[0].data.push(novoRegistro[0].resultado); // incluir uma nova medida
 
                         myChart.update();
                     }

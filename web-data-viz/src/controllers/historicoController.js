@@ -1,7 +1,9 @@
 var historicoModel = require("../models/historicoModel");
 
 function buscarHistoricoPorEmpresa(req, res) {
-  var idUsuario = req.params.idUsuario;
+  // var idUsuario = req.params.idUsuario;
+  var idUsuario = req.params.id;
+
 
   historicoModel.buscarHistoricoPorEmpresa(idUsuario).then((resultado) => {
     if (resultado.length > 0) {
@@ -17,33 +19,36 @@ function buscarHistoricoPorEmpresa(req, res) {
 }
 
 
-function cadastrar(req, res) {
-  var descricao = req.body.descricao;
-  var idUsuario = req.body.idUsuario;
+function historico(req, res) {
+  // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+  var total = req.body.totalServer;
+  
 
-  if (descricao == undefined) {
-    res.status(400).send("descricao está undefined!");
-  } else if (idUsuario == undefined) {
-    res.status(400).send("idUsuario está undefined!");
+  // Faça as validações dos valores
+  if (total == undefined) {
+      res.status(400).send("Seu total está undefined!");
   } else {
 
-
-    historicoModel.cadastrar(descricao, idUsuario)
-      .then((resultado) => {
-        res.status(201).json(resultado);
-      }
-      ).catch((erro) => {
-        console.log(erro);
-        console.log(
-          "\nHouve um erro ao realizar o cadastro! Erro: ",
-          erro.sqlMessage
-        );
-        res.status(500).json(erro.sqlMessage);
-      });
+      // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+      usuarioModel.historico(total)
+          .then(
+              function (resultado) {
+                  res.json(resultado);
+              }
+          ).catch(
+              function (erro) {
+                  console.log(erro);
+                  console.log(
+                      "\nHouve um erro ao realizar o cadastro do total! Erro: ",
+                      erro.sqlMessage
+                  );
+                  res.status(500).json(erro.sqlMessage);
+              }
+          );
   }
 }
 
 module.exports = {
   buscarHistoricoPorEmpresa,
-  cadastrar
+  historico
 }

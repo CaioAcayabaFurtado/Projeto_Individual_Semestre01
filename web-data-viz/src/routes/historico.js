@@ -7,8 +7,8 @@ router.get("/:empresaId", function (req, res) {
   historicoController.buscarHistoricoPorEmpresa(req, res);
 });
 
-router.post("/cadastrar", function (req, res) {
-  historicoController.cadastrar(req, res);
-})
+router.post("/historico", function (req, res) {
+  usuarioController.historico(req, res);
+});
 
 module.exports = router;

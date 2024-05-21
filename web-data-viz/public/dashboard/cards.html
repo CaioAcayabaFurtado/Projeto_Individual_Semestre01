@@ -164,6 +164,8 @@
 
 <script>
 
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
     var total = 0;
     function avaliar() {
 
@@ -271,7 +273,8 @@
             // cardErro.style.display = "block";
 
             alert ("Sua nota foi cadastrada no histórico");
-
+            
+            inserirMedida();
             limparFormulario();
           } else {
             throw "Houve um erro ao tentar realizar o cadastro da sua avaliação!";
@@ -279,7 +282,6 @@
         })
         .catch(function (resposta) {
           console.log(`#ERRO: ${resposta}`);
-          finalizarAguardar();
         });
 
       return false;
