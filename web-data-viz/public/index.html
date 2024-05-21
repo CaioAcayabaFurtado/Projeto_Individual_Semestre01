@@ -29,11 +29,11 @@
     <div class="pagina1"><!-- Pagina-1 / O que é e por que? -->
         <p class="perguntas"><b>O que é o Eco Turismo???</b></p>
         <p class="perguntas2">Porque eu deveria me preocupar com isso?</p><br>
-        <button class="botao2">Entenda melhor aqui!</button>
+        <button class="botao2" onclick="descer()">Entenda melhor aqui!</button>
     </div><!-- Pagina-1 -->
     
     <div class="pagina1_1"><!-- Pagina-1.1 -->
-        <p class="paragrafo1pg1">Ao contrário do turismo convencional, que muitas vezes pode ter impactos negativos sobre o meio ambiente e as comunidades locais, o ecoturismo busca minimizar esses impactos,<span class="span"><b> promover a conservação ambiental e contribuir para o desenvolvimento econômico das regiões visitadas</b></span>.</p>
+        <p id="paragrafo1" class="paragrafo1pg1">Ao contrário do turismo convencional, que muitas vezes pode ter impactos negativos sobre o meio ambiente e as comunidades locais, o ecoturismo busca minimizar esses impactos,<span class="span"><b> promover a conservação ambiental e contribuir para o desenvolvimento econômico das regiões visitadas</b></span>.</p>
         <div class="imagempg1"></div>
     </div><!-- Pagina-1.1 -->
     
@@ -110,6 +110,10 @@
 </div><!-- Container -->
   </body>
   <script>
+
+    function descer(){
+        window. scrollTo(0,450);
+    }
 
     function login(){
         window.location.href = "login.html"

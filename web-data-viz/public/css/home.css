@@ -55,6 +55,9 @@ body {
     color: rgb(22, 105, 19);
 }
 
+html{
+    scroll-behavior: smooth;
+}
 .botao{
     font-family: Poppins;
     background-color:rgb(31, 158, 26);
