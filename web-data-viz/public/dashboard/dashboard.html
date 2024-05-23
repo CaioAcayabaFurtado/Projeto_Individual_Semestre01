@@ -8,12 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rota Verde | Dashboards</title>
 
-    
+
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> -->
 
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -67,22 +68,51 @@
         </div>
 
         <div class="dash">
-            <div id="alerta">
+            <!-- <div id="alerta">
             </div>
+            <button onclick="exibirHistorico()">Exibir gráfico</button>
 
             <div class="btns-dash" id="btnHistorico">
-                <!-- O gráfico é chamado de acordo com o id (fk_historico) do banco  -->
+
             </div>
             <div id="graficos">
+            </div> -->
+            <div class="graficoArea">
+                <h1>SUAS ULTIMAS AVALIAÇÕES:</h1>
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div> 
             </div>
-        </div> 
-        <!-- <canvas id="myChart"></canvas> -->
-        
-        
-
-    </div>
-
-
+            
+            <div class="area-parametros-alerta">
+            <p class="titulo-legenda">
+                Parâmetros para a sua nota:
+            </p>
+            <div class="parametros-alerta">
+                <div class="item-regua perigo-frio">
+                    <p>Péssimo</p>
+                    <p>1</p>
+                </div>
+                <div class="item-regua alerta-frio">
+                    <p>Precisa melhorar...</p>
+                    <p>2</p>
+                </div>
+                <div class="item-regua ideal">
+                    <p>Na média</p>
+                    <p>3</p>
+                </div>
+                <div class="item-regua alerta-quente">
+                    <p>Muito bom!</p>
+                    <p>4</p>
+                </div>
+                <div class="item-regua perigo-quente">
+                    <p>Perfeito!</p>
+                    <p>5</p>
+                </div>
+            </div>
+            
+        </div>
+            
 </body>
 
 </html>
@@ -90,76 +120,87 @@
 <script>
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    let proximaAtualizacao;
 
-    window.onload = exibirHistoricoDoUsuario();
+    sessionStorage.HISTORICO = ""
+    var historico = JSON.parse(sessionStorage.HISTORICO);
 
-    function exibirHistoricoDoUsuario() {
-        var historico = JSON.parse(sessionStorage.HISTORICO);
-        historico.forEach(item => {
-            document.getElementById("btnHistorico").innerHTML += `
-            <button class="btn-chart" onclick="exibirHistorico(${item.id})" id="btnHistorico${item.id}">${item.descricao}</button>
-            `
+    // let proximaAtualizacao;
 
-            document.getElementById("graficos").innerHTML += `
-                <div id="grafico${item.id}" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloHistorico${item.id}">${item.descricao}</span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas${item.id}"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura${item.id}" style="color: white"></p>
-                    </div>
-                </div>
-            `
+    // window.onload = exibirHistoricoDoUsuario();
 
-            obterDadosGrafico(item.id)
-        });
+    // function exibirHistoricoDoUsuario() {
+    //     sessionStorage.HISTORICO = ""
+    //     var historico = JSON.parse(sessionStorage.HISTORICO);
+    //     historico.forEach(item => {
+    //         document.getElementById("btnHistorico").innerHTML += `
+    //         <button class="btn-chart" onclick="exibirHistorico(${item.id})" id="btnHistorico${item.id}">${item.descricao}</button>
+    //         `
 
-        if (historico.length > 0) {
-            exibirHistorico(historico[0].id)
-        }
-    }
+    //         document.getElementById("graficos").innerHTML += `
+    //             <div id="grafico${item.id}" class="display-none">
 
-    function alterarTitulo(idHistorico) {
-        var tituloHistorico = document.getElementById(`tituloHistorico${idHistorico}`)
-        var descricao = JSON.parse(sessionStorage.HISTORICO).find(item => item.id == idHistorico).descricao;
-        tituloHistorico.innerHTML = "Últimas avaliações:"
-    }
+    //                 <h3 class="tituloGraficos">
+    //                     <span id="tituloHistorico${item.id}">${item.descricao}</span>
+    //                 </h3>
 
-    function exibirHistorico(idHistorico) {
-        let todosOsGraficos = JSON.parse(sessionStorage.HISTORICO);
+    //                 <div class="graph">
+    //                     <canvas id="myChartCanvas${item.id}"></canvas>
+    //                 </div>
 
-        for (i = 0; i < todosOsGraficos.length; i++) {
-            // exibindo - ou não - o gráfico
-            if (todosOsGraficos[i].id != idHistorico) {
-                let elementoAtual = document.getElementById(`grafico${todosOsGraficos[i].id}`)
-                if (elementoAtual.classList.contains("display-block")) {
-                    elementoAtual.classList.remove("display-block")
-                }
-                elementoAtual.classList.add("display-none")
+    //                 <!-- <div class="label-captura">
+    //                     <p id="avisoCaptura${item.id}" style="color: white"></p>
+    //                 </div> -->
 
-                // alterando estilo do botão
-                let btnAtual = document.getElementById(`btnHistorico${todosOsGraficos[i].id}`)
-                if (btnAtual.classList.contains("btn-pink")) {
-                    btnAtual.classList.remove("btn-pink")
-                }
-                btnAtual.classList.add("btn-white")
-            }
-        }
+    //             </div>
+    //         `
 
-        // exibindo - ou não - o gráfico
-        let graficoExibir = document.getElementById(`grafico${idHistorico}`)
-        graficoExibir.classList.remove("display-none")
-        graficoExibir.classList.add("display-block")
+    //         obterDadosGrafico(item.id)
+    //     });
 
-        // alterando estilo do botão
-        let btnExibir = document.getElementById(`btnHistorico{idHistorico}`)
-        btnExibir.classList.remove("btn-white")
-        btnExibir.classList.add("btn-pink")
-    }
+    //     if (historico.length > 0) {
+    //         exibirHistorico(historico[0].id)
+    //     }
+    // }
+
+    // function alterarTitulo(idHistorico) {
+    //     var tituloHistorico = document.getElementById(`tituloHistorico${idHistorico}`)
+    //     var descricao = JSON.parse(sessionStorage.HISTORICO).find(item => item.id == idHistorico).descricao;
+    //     tituloHistorico.innerHTML = "Últimas avaliações:"
+    // }
+
+    // function exibirHistorico(idHistorico) {
+    //     let todosOsGraficos = JSON.parse(sessionStorage.HISTORICO);
+
+    //     for (i = 0; i < todosOsGraficos.length; i++) {
+    //         // exibindo - ou não - o gráfico
+    //         if (todosOsGraficos[i].id != idHistorico) {
+    //             let elementoAtual = document.getElementById(`grafico${todosOsGraficos[i].id}`)
+    //             if (elementoAtual.classList.contains("display-block")) {
+    //                 elementoAtual.classList.remove("display-block")
+    //             }
+    //             elementoAtual.classList.add("display-none")
+
+    //             // alterando estilo do botão
+    //             let btnAtual = document.getElementById(`btnHistorico${todosOsGraficos[i].id}`)
+    //             if (btnAtual.classList.contains("btn-pink")) {
+    //                 btnAtual.classList.remove("btn-pink")
+    //             }
+    //             btnAtual.classList.add("btn-white")
+    //         }
+    //     }
+
+    //     // exibindo - ou não - o gráfico
+    //     let graficoExibir = document.getElementById(`grafico${idHistorico}`)
+    //     graficoExibir.classList.remove("display-none")
+    //     graficoExibir.classList.add("display-block")
+
+    //     // alterando estilo do botão
+    //     let btnExibir = document.getElementById(`btnHistorico{idHistorico}`)
+    //     btnExibir.classList.remove("btn-white")
+    //     btnExibir.classList.add("btn-pink")
+    // }
+
+
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
@@ -172,6 +213,8 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
+
+
     function obterDadosGrafico(idHistorico) {
 
         alterarTitulo(idHistorico)
@@ -180,7 +223,7 @@
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/historico/historico/${idHistorico}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/historico/historicoRota/${idHistorico}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -264,7 +307,7 @@
 
 
 
-        fetch(`/historco/historico/${idHistorico}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/historco/historicoRota/${idHistorico}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 

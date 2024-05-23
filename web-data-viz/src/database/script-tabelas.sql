@@ -4,17 +4,11 @@ drop database RotaVerde;
 USE RotaVerde;
 
 select * from usuario;
+select * from historico;
+select * from aviso;
 truncate table usuario;
 
 -- ---------------------------------------------------------------------------------------------------------------------------------------------------
-/*
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14)
-);
-*/
-
 
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -42,28 +36,26 @@ CREATE TABLE aviso (
 
 create table historico (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300)
+	resultado int,
+    fk_usuario INT,
+	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 	-- fk_empresa INT,
 	-- FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
-
+/*
 create table medida (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	-- dht11_umidade DECIMAL,
-	-- dht11_temperatura DECIMAL,
-	-- luminosidade DECIMAL,
-	-- lm35_temperatura DECIMAL,
-    resultado VARCHAR (45),
-	chave TINYINT,
-	momento DATETIME,
+    resultado int,
+		constraint FkResultadoMedida foreign key (resultado) references historico(resultado),
+	-- momento DATETIME,
 	fk_historico INT,
 	FOREIGN KEY (fk_historico) REFERENCES historico(id)
 );
+*/
 
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------
 
--- insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
--- insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
 
 
 

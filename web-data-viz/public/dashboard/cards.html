@@ -125,7 +125,7 @@
                 <div class="msg" id="div_msg"></div>
             </div>
 
-            <div class="area-parametros-alerta">
+            <!-- <div class="area-parametros-alerta">
                 <p class="titulo-legenda">
                     Parâmetros para a sua nota:
                 </p>
@@ -150,7 +150,7 @@
                         <p>Perfeito!</p>
                         <p>5</p>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- </div>
                 <div class="cards" id="cardHistorico">
@@ -242,6 +242,7 @@
             }
             total = 0
             total = pontos / 5;
+            total = total.toFixed(0);
             div_msg.innerHTML = `Sua pontuação foi: ${total}, agora você pode vizualizala na página "histórico".`;
             cadastrar()
         }
@@ -255,7 +256,7 @@
     
 
       // Enviando o valor da nova input
-      fetch("/historico/historico", {
+      fetch("/historico/historicoRota", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -264,6 +265,7 @@
           // crie um atributo que recebe o valor recuperado aqui
           // Agora vá para o arquivo routes/usuario.js
           totalServer: total,
+          idServer: sessionStorage.ID_USUARIO // Suporte sugeriu
         }),
       })
         .then(function (resposta) {

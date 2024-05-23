@@ -19,36 +19,44 @@ function buscarHistoricoPorUsuario(req, res) {
 }
 
 
-function historico(req, res) {
+function historicoRota(req, res) {
   // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
   var total = req.body.totalServer;
-  
+  var id = req.body.idServer;
+
 
   // Faça as validações dos valores
   if (total == undefined) {
-      res.status(400).send("Seu total está undefined!");
+    res.status(400).send("Seu total está undefined!");
   } else {
 
-      // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-      usuarioModel.historico(total)
-          .then(
-              function (resultado) {
-                  res.json(resultado);
-              }
-          ).catch(
-              function (erro) {
-                  console.log(erro);
-                  console.log(
-                      "\nHouve um erro ao realizar o cadastro do resultado! Erro: ",
-                      erro.sqlMessage
-                  );
-                  res.status(500).json(erro.sqlMessage);
-              }
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    historicoModel.historicoRota(total, id)
+      .then(
+        function (resultado) {
+          res.json(resultado);
+        }
+      ).catch(
+        function (erro) {
+          console.log(erro);
+          console.log(
+            "\nHouve um erro ao realizar o cadastro do resultado! Erro: ",
+            erro.sqlMessage
           );
-  }
+          res.status(500).json(erro.sqlMessage);
+        }
+      );
+
+
+    // Faça as validações dos valores // SUPORTE SUGERIU
+    }
 }
+
+
+
+
 
 module.exports = {
   buscarHistoricoPorUsuario,
-  historico
+  historicoRota
 }

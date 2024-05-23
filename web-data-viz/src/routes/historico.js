@@ -7,8 +7,8 @@ router.get("/:idHistorico", function (req, res) {
   historicoController.buscarHistoricoPorUsuario(req, res);
 });
 
-router.post("/historico", function (req, res) {
-  usuarioController.historico(req, res);
+router.post("/historicoRota", function (req, res) {
+  historicoController.historicoRota(req, res);
 });
 
 module.exports = router;

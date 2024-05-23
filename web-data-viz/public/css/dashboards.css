@@ -145,7 +145,7 @@ body{
   position: relative;
   top: 0;
   left: 20%;
-  height: 160vh;
+  height: 130vh;
   overflow: auto;
 
   display: flex;
@@ -164,15 +164,15 @@ body{
   align-items: center;
 }
 .titulo-quest{
-  font-size: 60px;
+  font-size: 40px;
   text-align: center;
   color: white;
   width: 70%;
-  padding-top: 20px;
+  /* padding-top: 10px; */
 }
 .pergunta{
   width: 80%;
-  height: 100px;
+  height: 80  px;
   background-color: rgb(255, 255, 255, 0.95);
   color: rgb(0, 0, 0);
   border-radius: 33px;
@@ -212,7 +212,8 @@ select{
   font-family: Poppins;
   background-color: white;
 
-  /* margin-top: 20px; */
+  margin-top: 10px;
+
   transition: 400ms;
 }
 .botaoR:hover{
@@ -435,7 +436,7 @@ canvas {
 
 .janela {
   display: flex;
-  /* width: 100vw; */
+  width: 100%;
 }
 
 .header-left a {
@@ -536,3 +537,25 @@ canvas {
   width: 70%;
 }
 
+
+.graficoArea{
+  height: 400px;
+  width: 700px;
+  background-color: rgb(255, 255, 255, 0.8);
+  color: #000000;
+  border-radius: 33px;
+
+  padding: 10px;
+  margin-top: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+/* scrollbar{
+  position: relative;
+  right: -30px;
+} */
