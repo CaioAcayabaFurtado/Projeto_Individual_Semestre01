@@ -96,7 +96,9 @@
                     sessionStorage.EMAIL_USUARIO = json[0].email;
                     sessionStorage.NOME_USUARIO = json[0].nome;
                     sessionStorage.ID_USUARIO = json[0].id;
-                    sessionStorage.HISTORICO = JSON.stringify(json.historico)
+                    // sessionStorage.HISTORICO = JSON.stringify(json.historico)
+                    sessionStorage.HISTORICO = json[0].resultado
+
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";

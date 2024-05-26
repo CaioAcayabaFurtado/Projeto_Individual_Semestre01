@@ -84,6 +84,7 @@
                 </div> 
             </div>
             
+            
             <div class="area-parametros-alerta">
             <p class="titulo-legenda">
                 Parâmetros para a sua nota:
@@ -120,9 +121,10 @@
 <script>
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    obterDadosGrafico()
+    
+    // var historico = JSON.parse(sessionStorage.ID_USUARIO);
 
-    sessionStorage.HISTORICO = ""
-    var historico = JSON.parse(sessionStorage.HISTORICO);
 
     // let proximaAtualizacao;
 
@@ -215,21 +217,21 @@
     //     Para ajustar o "select", ajuste o comando sql em src/models
 
 
-    function obterDadosGrafico(idHistorico) {
+    function obterDadosGrafico() {
 
-        alterarTitulo(idHistorico)
+        // alterarTitulo(idHistorico)
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/historico/historicoRota/${idHistorico}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/historico/historicoRota/${historico}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
-                    plotarGrafico(resposta, idHistorico);
+                    plotarGrafico(resposta, historico);
 
                 });
             } else {
@@ -307,7 +309,7 @@
 
 
 
-        fetch(`/historco/historicoRota/${idHistorico}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/historco/historicoRota/${historico}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
