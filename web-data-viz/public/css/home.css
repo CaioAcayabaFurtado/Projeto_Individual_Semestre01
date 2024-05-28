@@ -267,7 +267,7 @@ html{
 }
 .texto_pg4{
     background-color: rgb(31, 158, 26);
-    border-radius: 33px;
+    border-radius: 20px;
     padding: 10px;
 
     font-size: 17px;
@@ -292,6 +292,17 @@ html{
     align-items: start;
     padding: 60px;
 }
+.subpagina_5{
+    width: 100%;
+    height: 60px;
+    /* background-image: url(../css/img/fundo_pag5.jpg); */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: start;
+    /* padding: 60px; */
+}
 
 .titulo_pg5{
     width: 90%;
@@ -311,6 +322,18 @@ html{
     color: white;
     font-size: 20px;
 
+}
+
+.texto3_pg5{
+    color: white;
+    border-bottom: 2px solid;
+    margin-top: 50px;
+    transition: 200ms;
+    padding: 3px;
+}
+.texto3_pg5:hover{
+    background-color: rgba(0, 0, 0, 0.47);
+    /* border-radius: 33px; */
 }
 
 .botao_c{
@@ -352,6 +375,10 @@ html{
     font-size: 25px;
     font-weight: 600;
     margin: 10px;
+}
+.fale p{
+    margin: 10px;
+    width: 600px;
 }
 .enviar{
     display: flex;

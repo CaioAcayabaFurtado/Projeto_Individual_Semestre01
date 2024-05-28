@@ -63,59 +63,58 @@
             <h1 class="titulo-quest">Responda o questionário para fazer a avaliação:</h1>
             <div class="quest">
                 <div class="pergunta">
-                    <h2>Questão - 1</h2>
+                    <p>Como você avalia a contribuição das práticas de descarte de lixo da empresa para a sustentabilidade ambiental?</p>
                     <select name="select1" id="select_1">
                         <option selected disabled value="#">Selecione uma opção</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-
-                <div class="pergunta">
-                    <h2>Questão - 2</h2>
-                    <select name="select2" id="select_2">
-                        <option selected disabled value="#">Selecione uma opção</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">Exelente</option>
+                        <option value="4">Boa</option>
+                        <option value="3">Regular</option>
+                        <option value="2">Ruim</option>
+                        <option value="1">Muito ruim</option>
                     </select>
                 </div>
                 <div class="pergunta">
-                    <h2>Questão - 3</h2>
+                    <p>Os materiais recicláveis (papel, plástico, vidro, metal) são corretamente separados e encaminhados para reciclagem?</p>
                     <select name="select3" id="select_3">
                         <option selected disabled value="#">Selecione uma opção</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">Sempre</option>
+                        <option value="4">Frequentemente</option>
+                        <option value="3">Às vezes</option>
+                        <option value="2">Raramente</option>
+                        <option value="1">Nunca</option>
                     </select>
                 </div>
                 <div class="pergunta">
-                    <h2>Questão - 4</h2>
+                    <p>Quais tecnologias ou inovações a empresa implementou para melhorar o gerenciamento de resíduos e promover a sustentabilidade?</p>
+                    <select name="select2" id="select_2">
+                        <option selected disabled value="#">Selecione uma opção</option>
+                        <option value="5">Sistemas automatizados de segregação de resíduos</option>
+                        <option value="5">Software de rastreamento e relatório de resíduos</option>
+                        <option value="5">Programas de compostagem</option>
+                        <option value="5">Uso de materiais biodegradáveis</option>
+                        <option value="1">Não utilizamos nenhuma técnica</option>
+                    </select>
+                </div>
+                <div class="pergunta">
+                    <p>A empresa possui parcerias ou contratos com empresas especializadas em reciclagem e gestão de resíduos? Se sim, qual é a avaliação dessas parcerias em termos de eficiência e sustentabilidade?</p>
                     <select name="select4" id="select_4">
                         <option selected disabled value="#">Selecione uma opção</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">Muito satisfatória</option>
+                        <option value="4">Satisfatória</option>
+                        <option value="4">Neutra</option>
+                        <option value="3">Insatisfatória</option>
+                        <option value="1">Não possui parceria</option>
                     </select>
                 </div>
                 <div class="pergunta">
-                    <h2>Questão - 5</h2>
+                    <p>Como a empresa garante a conformidade com as regulamentações ambientais e normas de descarte de resíduos?</p>
                     <select name="select5" id="select_5">
                         <option selected disabled value="#">Selecione uma opção</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5">Consultorias externas especializadas</option>
+                        <option value="4">Auditorias internas regulares</option>
+                        <option value="3">Treinamentos periódicos para funcionários</option>
+                        <option value="2">Outros</option>
+                        <option value="1">Não nos preocupamos com isso</option>
                     </select>
                 </div>
             </div>
@@ -124,38 +123,6 @@
                 <button class="botaoR" onclick="avaliar()"><b>Avaliar</b></button>
                 <div class="msg" id="div_msg"></div>
             </div>
-
-            <!-- <div class="area-parametros-alerta">
-                <p class="titulo-legenda">
-                    Parâmetros para a sua nota:
-                </p>
-                <div class="parametros-alerta">
-                    <div class="item-regua perigo-frio">
-                        <p>Péssimo</p>
-                        <p>1</p>
-                    </div>
-                    <div class="item-regua alerta-frio">
-                        <p>Precisa melhorar...</p>
-                        <p>2</p>
-                    </div>
-                    <div class="item-regua ideal">
-                        <p>Na média</p>
-                        <p>3</p>
-                    </div>
-                    <div class="item-regua alerta-quente">
-                        <p>Muito bom!</p>
-                        <p>4</p>
-                    </div>
-                    <div class="item-regua perigo-quente">
-                        <p>Perfeito!</p>
-                        <p>5</p>
-                    </div>
-                </div> -->
-
-                <!-- </div>
-                <div class="cards" id="cardHistorico">
-            </div> -->
-
             </div>
 
         </div>
@@ -181,63 +148,63 @@
             alert("Responda TODAS as quetões!");
         } else {
 
-            if (select1 == "1") {
+            if (select1 == 1) {
                 pontos = pontos + 1;
-            } else if (select1 == "2") {
+            } else if (select1 == 2) {
                 pontos = pontos + 2;
-            } else if (select1 == "3") {
+            } else if (select1 == 3) {
                 pontos = pontos + 3;
-            } else if (select1 == "4") {
+            } else if (select1 == 4) {
                 pontos = pontos + 4;
-            } else if (select1 == "5") {
+            } else if (select1 == 5) {
                 pontos = pontos + 5;
             }
 
-            if (select2 == "1") {
+            if (select2 == 1) {
                 pontos = pontos + 1;
-            } else if (select2 == "2") {
+            } else if (select2 == 2) {
                 pontos = pontos + 2;
-            } else if (select2 == "3") {
+            } else if (select2 == 3) {
                 pontos = pontos + 3;
-            } else if (select2 == "4") {
+            } else if (select2 == 4) {
                 pontos = pontos + 4;
-            } else if (select2 == "5") {
+            } else if (select2 == 5) {
                 pontos = pontos + 5;
             }
 
-            if (select3 == "1") {
+            if (select3 == 1) {
                 pontos = pontos + 1;
-            } else if (select3 == "2") {
+            } else if (select3 == 2) {
                 pontos = pontos + 2;
-            } else if (select3 == "3") {
+            } else if (select3 == 3) {
                 pontos = pontos + 3;
-            } else if (select3 == "4") {
+            } else if (select3 == 4) {
                 pontos = pontos + 4;
-            } else if (select3 == "5") {
+            } else if (select3 == 5) {
                 pontos = pontos + 5;
             }
 
-            if (select4 == "1") {
+            if (select4 == 1) {
                 pontos = pontos + 1;
-            } else if (select4 == "2") {
+            } else if (select4 == 2) {
                 pontos = pontos + 2;
-            } else if (select4 == "3") {
+            } else if (select4 == 3) {
                 pontos = pontos + 3;
-            } else if (select4 == "4") {
+            } else if (select4 == 4) {
                 pontos = pontos + 4;
-            } else if (select4 == "5") {
+            } else if (select4 == 5) {
                 pontos = pontos + 5;
             }
 
-            if (select5 == "1") {
+            if (select5 == 1) {
                 pontos = pontos + 1;
-            } else if (select5 == "2") {
+            } else if (select5 == 2) {
                 pontos = pontos + 2;
-            } else if (select5 == "3") {
+            } else if (select5 == 3) {
                 pontos = pontos + 3;
-            } else if (select5 == "4") {
+            } else if (select5 == 4) {
                 pontos = pontos + 4;
-            } else if (select5 == "5") {
+            } else if (select5 == 5) {
                 pontos = pontos + 5;
             }
             total = 0
