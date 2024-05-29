@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rota Verde | Dashboards</title>
+    <title>Rota Verde | Dashboard</title>
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
@@ -28,6 +28,7 @@
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
 
     <div class="janela">
@@ -54,7 +55,7 @@
 
             <div class="btn-nav-white">
                 <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
+                    <h3>Fórum</h3>
                 </a>
             </div>
 
@@ -65,18 +66,29 @@
         </div>
 
         <div class="dash">
-            
+
+            <p class="titulo_obj12"><b>Lembre-se que o objetivo destas avaliações é possibilitar a vizualização da
+                    situação
+                    em que o turismo brasileiro se situa em relação as práticas ecológicas!</b></p>
+
+            <p class="texto_obj12">Ao se alinhar com o ODS 12, o projeto de ecoturismo não apenas promove práticas de
+                viagem sustentáveis,
+                mas também contribui para a conscientização global sobre a importância do consumo e produção
+                responsáveis.</p>
+
+            <p onclick="onu()" class="texto3_pg5">Consumo e Produção Responsável - 12° Objetivo de desenvolvimento
+                sustentável da ONU.</p>
+
+
             <div class="graficoArea">
                 <h1>Avaliações da Comunidade:</h1>
                 <div class="grafico">
                     <canvas id="myChart"></canvas>
-                </div> 
+                </div>
             </div>
-            
-            
-            <div class="area-parametros-alerta">
+
             <p class="titulo-legenda">
-                Parâmetros para a sua nota:
+                Parâmetros para as notas:
             </p>
             <div class="parametros-alerta">
                 <div class="item-regua perigo-frio">
@@ -100,18 +112,20 @@
                     <p>5</p>
                 </div>
             </div>
-            
         </div>
-            
 </body>
 
 </html>
 
 <script>
 
+    function onu() {
+        window.location.href = "https://www.ipea.gov.br/ods/ods12.html#:~:text=Assegurar%20padr%C3%B5es%20de%20produ%C3%A7%C3%A3o%20e%20de%20consumo%20sustent%C3%A1veis&text=Implementar%20o%20Plano%20Decenal%20de,capacidades%20dos%20pa%C3%ADses%20em%20desenvolvimento."
+    }
+    var usurario = sessionStorage.NOME_USUARIO;
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     obterDadosGrafico()
-    
+
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
     // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
@@ -128,7 +142,7 @@
     var dados = [];
 
     function obterDadosGrafico() {
-        
+
         fetch("/historico/historico", {
             method: "GET",
             headers: {
@@ -143,8 +157,17 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    
-                    dados = JSON.stringify(json);
+
+                    console.log(json[0]["1"])
+                    dados.push(json[0]["1"])
+                    console.log(json[0]["2"])
+                    dados.push(json[0]["2"])
+                    console.log(json[0]["3"])
+                    dados.push(json[0]["3"])
+                    console.log(json[0]["4"])
+                    dados.push(json[0]["4"])
+                    console.log(json[0]["5"])
+                    dados.push(json[0]["5"])
                     gerarGrafico()
                 });
 
@@ -168,17 +191,21 @@
 
     function gerarGrafico() {
         const ctx = document.getElementById('myChart');
-
+            console.log("esses são os dados:" + dados)
         new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ['1', '2', '3', '4', '5'],
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'Quantidade de notas por coluna',
                     data: dados,
-                    borderWidth: 1
-            
-                }]
+                    borderWidth: 1,
+                    borderColor: 'rgb(22, 105, 19)',
+                    backgroundColor: 'rgb(22, 105, 19)'
+
+                }
+                ],
+
             },
             options: {
                 scales: {

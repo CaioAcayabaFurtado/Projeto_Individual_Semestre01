@@ -324,17 +324,7 @@ html{
 
 }
 
-.texto3_pg5{
-    color: white;
-    border-bottom: 2px solid;
-    margin-top: 50px;
-    transition: 200ms;
-    padding: 3px;
-}
-.texto3_pg5:hover{
-    background-color: rgba(0, 0, 0, 0.47);
-    /* border-radius: 33px; */
-}
+
 
 .botao_c{
     background-color: white;

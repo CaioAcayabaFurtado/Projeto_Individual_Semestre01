@@ -18,6 +18,7 @@ html{
 body{
   background-image: url(./img/chapada___veu_de_noiva___0035-3.jpg);
   background-size: cover;
+  width: 100%;
 }
 
 .label-captura {
@@ -146,7 +147,7 @@ body{
   position: relative;
   top: 0;
   left: 20%;
-  height: 130vh;
+  height: 140vh;
   overflow: auto;
 
   display: flex;
@@ -168,7 +169,7 @@ body{
   font-size: 40px;
   text-align: center;
   color: white;
-  width: 70%;
+  width: 45%;
   /* padding-top: 10px; */
 }
 .pergunta{
@@ -176,7 +177,7 @@ body{
   height: 80  px;
   background-color: rgb(255, 255, 255, 0.95);
   color: rgb(0, 0, 0);
-  border-radius: 33px;
+  border-radius: 13px;
   text-align: center;
 
   padding: 15px;
@@ -240,28 +241,34 @@ select{
   display: flex;
   flex-direction: column;
   width: 70%;
+  height: 10px;
   margin: auto;
   margin-top: 30px;
-  background-color: rgb(0,0,0, 0.6);
 }
-
-.area-parametros-alerta .titulo-legenda {
-  color: white;
-  font-weight: 600;
-  width: fit-content;
-  margin: 10px 20px;
-}
-
 .parametros-alerta {
   display: flex;
-  width: 100%;
+  width: 70%;
+
 }
+
+.titulo-legenda {
+  color: white;
+  /* font-weight: 70px; */
+  font-size: 25px;
+  width: 70%;
+  margin: 10px 20px;
+  padding: 5px;
+  text-align: center;
+  /* background-color: rgb(0,0,0, 0.6); */
+}
+
 
 .item-regua {
   width: 20%;
   text-align: center;
   height: 80px;
   display: flex;
+  margin: 2px;
   flex-direction: column;
   justify-content: center;
   align-self: center;
@@ -294,6 +301,18 @@ select{
 
 .ideal {
   background-color: #fcff56;
+}
+
+.titulo_obj12{
+  color: white;
+  font-size: 30px;
+  width: 75%;
+}
+.texto_obj12{
+  color: white;
+  width: 75%;
+  font-size: 20px;
+  
 }
 
 .cards {
@@ -464,7 +483,7 @@ canvas {
 
 .dash-right {
   display: flex;
-  width: 70%;
+  width: 75%;
   height: fit-content;
   /* background-color: rgb(0,0,0, 0); */
   position: relative;
@@ -544,9 +563,9 @@ canvas {
 .graficoArea{
   height: 400px;
   width: 700px;
-  background-color: rgb(255, 255, 255, 0.8);
+  background-color: rgb(255, 255, 255, 0.95);
   color: #000000;
-  border-radius: 33px;
+  border-radius: 13px;
 
   padding: 10px;
   margin-top: 40px;
@@ -560,6 +579,20 @@ canvas {
 .grafico{
   width: 600px;
   height: 300px;
+}
+
+.texto3_pg5{
+  color: white;
+  border-bottom: 2px solid;
+  margin-top: 20px;
+  transition: 200ms;
+  padding: 3px;
+  text-align: right;
+  width: 75%;
+}
+.texto3_pg5:hover{
+  background-color: rgba(0, 0, 0, 0.47);
+  /* border-radius: 33px; */
 }
 /* scrollbar{
   position: relative;

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Avisos</title>
+    <title>Rota Verde | Fórum</title>
 
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
@@ -47,7 +47,7 @@
             </div>
 
             <div class="btn-nav">
-                <h3>Mural de Avisos</h3>
+                <h3>Fórum</h3>
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">
@@ -63,7 +63,7 @@
                 <div id="alerta">
                 </div>
                 <div class="container">
-                    <h1>Compartilhe idéias, indicações, dúvidas... tudo o que for conveniente para a comunidade!</h1>
+                    <h1>Compartilhe idéias, indicações, dúvidas, comentários... tudo o que for conveniente para a comunidade!</h1>
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>
@@ -98,7 +98,7 @@
 </html>
 
 <script>
-    
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     function limparFormulario() {
@@ -140,35 +140,44 @@
 
     }
 
-    function editar(idAviso) {
-        sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-        console.log("cliquei em editar - " + idAviso);
-        window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-        window.location = "/dashboard/edicao-aviso.html"
+    // function editar(idAviso) {
+    //     if (publicacao.nome == sessionStorage.NOME_USUARIO) {
+    //         sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
+    //         console.log("cliquei em editar - " + idAviso);
+    //         window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
+    //         window.location = "/dashboard/edicao-aviso.html"
+    //     } else {
+    //         alert(`Você não é o autor desta postagem!`)
+    //     }
 
-    }
+    // }
 
-    function deletar(idAviso) {
-        console.log("Criar função de apagar post escolhido - ID" + idAviso);
-        fetch(`/avisos/deletar/${idAviso}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(function (resposta) {
+    // function deletar(idAviso) {
+    //     if (publicacao.nome == sessionStorage.NOME_USUARIO) {
+    //         console.log("Criar função de apagar post escolhido - ID" + idAviso);
+    //         fetch(`/avisos/deletar/${idAviso}`, {
+    //             method: "DELETE",
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             }
+    //         }).then(function (resposta) {
 
-            if (resposta.ok) {
-                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/mural.html"
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-    }
+    //             if (resposta.ok) {
+    //                 window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+    //                 window.location = "/dashboard/mural.html"
+    //             } else if (resposta.status == 404) {
+    //                 window.alert("Deu 404!");
+    //             } else {
+    //                 throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+    //             }
+    //         }).catch(function (resposta) {
+    //             console.log(`#ERRO: ${resposta}`);
+    //         });
+    //     } else {
+    //         alert(`Você não é o autor desta postagem!`)
+    //     }
+    // }
+
 
     function atualizarFeed() {
         fetch("/avisos/listar").then(function (resposta) {
@@ -240,6 +249,36 @@
         }).catch(function (resposta) {
             console.error(resposta);
         });
+    }
+
+
+    function editar(idAviso) {
+            sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
+            console.log("cliquei em editar - " + idAviso);
+            window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
+            window.location = "/dashboard/edicao-aviso.html"
+    }
+
+    function deletar(idAviso) {
+            console.log("Criar função de apagar post escolhido - ID" + idAviso);
+            fetch(`/avisos/deletar/${idAviso}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (resposta) {
+
+                if (resposta.ok) {
+                    window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                    window.location = "/dashboard/mural.html"
+                } else if (resposta.status == 404) {
+                    window.alert("Deu 404!");
+                } else {
+                    throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
     }
 
 </script>
