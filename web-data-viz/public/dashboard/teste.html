@@ -3,7 +3,7 @@
     var dados = [];
 
     function login() {
-        
+
         fetch("/historico/historico", {
             method: "GET",
             headers: {
@@ -18,7 +18,7 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    
+
                     dados = JSON.stringify(json);
 
                     setTimeout(function () {
@@ -35,7 +35,6 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    // finalizarAguardar(texto);
                 });
             }
 

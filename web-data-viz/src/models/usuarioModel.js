@@ -27,5 +27,4 @@ function cadastrar(nome, cnpj, email, telefone, cep, numero, complemento, senha)
 module.exports = {
     autenticar,
     cadastrar
-
 };

@@ -5,8 +5,15 @@ USE RotaVerde;
 
 select * from usuario;
 select * from historico;
+truncate table historico;
 select * from aviso;
 truncate table usuario;
+SELECT
+	(SELECT count(resultado) FROM historico a WHERE resultado = 1) AS '1',
+	(SELECT count(resultado) FROM historico a WHERE resultado = 2) AS '2',
+	(SELECT count(resultado) FROM historico a WHERE resultado = 3) AS '3',
+	(SELECT count(resultado) FROM historico a WHERE resultado = 4) AS '4',
+	(SELECT count(resultado) FROM historico a WHERE resultado = 5) AS '5';
 
 -- ---------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -20,8 +27,6 @@ CREATE TABLE usuario (
     numero varchar (10),
     complemento varchar (45),
 	senha VARCHAR(50)
-	-- fk_empresa INT,
-	-- FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
 
@@ -39,20 +44,7 @@ create table historico (
 	resultado int,
     fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-	-- fk_empresa INT,
-	-- FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
-
-/*
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    resultado int,
-		constraint FkResultadoMedida foreign key (resultado) references historico(resultado),
-	-- momento DATETIME,
-	fk_historico INT,
-	FOREIGN KEY (fk_historico) REFERENCES historico(id)
-);
-*/
 
 -- ---------------------------------------------------------------------------------------------------------------------------------------------------
 

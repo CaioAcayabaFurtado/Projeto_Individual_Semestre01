@@ -63,7 +63,8 @@
                 <div id="alerta">
                 </div>
                 <div class="container">
-                    <h1>Compartilhe idéias, indicações, dúvidas, comentários... tudo o que for conveniente para a comunidade!</h1>
+                    <h1>Compartilhe idéias, indicações, dúvidas, comentários... tudo o que for conveniente para a
+                        comunidade!</h1>
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>
@@ -199,7 +200,7 @@
                         divPublicacao.appendChild(divDescricao);
                         divPublicacao.appendChild(divButtons);
                         var usuarioo = sessionStorage.ID_USUARIO;
-                        if(usuarioo == publicacao.idUsuario || usuarioo == 2){
+                        if (usuarioo == publicacao.idUsuario || usuarioo == 2) {
                             divButtons.appendChild(btnEditar);
                             divButtons.appendChild(btnDeletar);
                         }
@@ -215,45 +216,36 @@
         });
     }
 
-// ----------------------------------------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------------------------------
 
 
     function editar(idAviso) {
-        // if (usuarioo == ){
-            sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-            console.log("cliquei em editar - " + idAviso);
-            window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-            window.location = "/dashboard/edicao-aviso.html"
-        // } else {
-        //     alert ("Você não é o autor dessa publicação!");
-        // }
+        sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
+        console.log("cliquei em editar - " + idAviso);
+        window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
+        window.location = "/dashboard/edicao-aviso.html"
     }
 
     function deletar(idAviso) {
-        // if (usuarioo == ){  
+        console.log("Criar função de apagar post escolhido - ID" + idAviso);
+        fetch(`/avisos/deletar/${idAviso}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
 
-            console.log("Criar função de apagar post escolhido - ID" + idAviso);
-            fetch(`/avisos/deletar/${idAviso}`, {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            }).then(function (resposta) {
-
-                if (resposta.ok) {
-                    window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                    window.location = "/dashboard/mural.html"
-                } else if (resposta.status == 404) {
-                    window.alert("Deu 404!");
-                } else {
-                    throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
-        // } else {
-        //     alert ("Você não é o autor dessa publicação!");
-        // }
+            if (resposta.ok) {
+                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                window.location = "/dashboard/mural.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
     }
-        
-    </script>
+
+</script>

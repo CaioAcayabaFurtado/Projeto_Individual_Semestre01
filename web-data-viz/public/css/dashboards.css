@@ -4,10 +4,12 @@
   font-family: Poppins;
   src: url();
 }
-html{
+
+html {
   font-family: Poppins;
   min-height: 100%;
 }
+
 /* verde: rgb(31, 158, 26); */
 
 * {
@@ -15,7 +17,8 @@ html{
   padding: 0;
   box-sizing: border-box;
 }
-body{
+
+body {
   background-image: url(./img/chapada___veu_de_noiva___0035-3.jpg);
   background-size: cover;
   width: 100%;
@@ -54,7 +57,6 @@ body{
 .dash-right .avisos .div-form input {
   width: 95%;
   border-radius: 22px;
-  /* border: 2px solid rgb(22, 105, 19); */
   border: none;
   font-family: Poppins;
   margin-top: 10px;
@@ -63,7 +65,6 @@ body{
 
 .dash-right .avisos .div-form textarea {
   width: 95%;
-  /* border: 2px solid rgb(22, 105, 19); */
   border: none;
   background-color: white;
   border-radius: 15px;
@@ -122,7 +123,7 @@ body{
 }
 
 .div-results .feed-container {
-  background-color: rgb(0,0,0, 0.6);
+  background-color: rgb(0, 0, 0, 0.6);
   border-radius: 5px;
   margin-bottom: 80px;
 }
@@ -139,7 +140,7 @@ body{
 /* pagina graficos */
 
 .dash-header {
-  background-color: rgb(0,0,0, 0.6);
+  background-color: rgb(0, 0, 0, 0.6);
 }
 
 .dash {
@@ -156,32 +157,32 @@ body{
   align-items: center;
 
 }
-.quest{
+
+.quest {
   width: 80%;
   color: white;
   margin-top: 15px;
-  /* margin-left: 50px; */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.titulo-quest{
+
+.titulo-quest {
   font-size: 40px;
   text-align: center;
   color: white;
   width: 45%;
-  /* padding-top: 10px; */
 }
-.pergunta{
+
+.pergunta {
   width: 80%;
-  height: 80  px;
+  height: 80 px;
   background-color: rgb(255, 255, 255, 0.95);
   color: rgb(0, 0, 0);
   border-radius: 13px;
   text-align: center;
 
   padding: 15px;
-  /* margin-left: 40px; */
   margin-top: 20px;
 
   display: flex;
@@ -190,7 +191,7 @@ body{
   align-items: center;
 }
 
-select{
+select {
   border: none;
   border-radius: 20px;
   background-color: rgb(214, 214, 214);
@@ -201,14 +202,14 @@ select{
   margin-top: 5px;
 }
 
-.resultado{
+.resultado {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: 10px;
-  /* justify-content: center; */
 }
-.botaoR{
+
+.botaoR {
   border: none;
   border-radius: 20px;
   width: 100px;
@@ -220,14 +221,14 @@ select{
 
   transition: 400ms;
 }
-.botaoR:hover{
+
+.botaoR:hover {
   background-color: rgb(221, 221, 221);
   width: 120px;
 }
 
-.msg{
+.msg {
   font-family: Poppins;
-  /* height: 40px; */
   color: white;
   text-align: center;
   text-justify: center;
@@ -237,7 +238,6 @@ select{
 }
 
 .area-parametros-alerta {
-  /* border: 2px solid pink; */
   display: flex;
   flex-direction: column;
   width: 70%;
@@ -245,6 +245,7 @@ select{
   margin: auto;
   margin-top: 30px;
 }
+
 .parametros-alerta {
   display: flex;
   width: 70%;
@@ -253,13 +254,11 @@ select{
 
 .titulo-legenda {
   color: white;
-  /* font-weight: 70px; */
   font-size: 25px;
   width: 70%;
   margin: 10px 20px;
   padding: 5px;
   text-align: center;
-  /* background-color: rgb(0,0,0, 0.6); */
 }
 
 
@@ -303,16 +302,17 @@ select{
   background-color: #fcff56;
 }
 
-.titulo_obj12{
+.titulo_obj12 {
   color: white;
   font-size: 30px;
   width: 75%;
 }
-.texto_obj12{
+
+.texto_obj12 {
   color: white;
   width: 75%;
   font-size: 20px;
-  
+
 }
 
 .cards {
@@ -332,10 +332,8 @@ select{
   width: fit-content;
   flex-wrap: wrap;
   display: flex;
-  /* text-align: center; */
   height: 180px;
-  /* justify-content: right; */
-  background-color: rgb(0,0,0, 0.6);
+  background-color: rgb(0, 0, 0, 0.6);
   font-size: 20px;
 }
 
@@ -477,15 +475,13 @@ canvas {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  /* border-right: 3px solid #ffffff; */
-  background-color: rgb(255,255,255, 1);
+  background-color: rgb(255, 255, 255, 1);
 }
 
 .dash-right {
   display: flex;
   width: 75%;
   height: fit-content;
-  /* background-color: rgb(0,0,0, 0); */
   position: relative;
   top: 0;
   left: 25%;
@@ -493,7 +489,7 @@ canvas {
   overflow: auto;
 }
 
-.titulo{
+.titulo {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -544,9 +540,10 @@ canvas {
   margin: 0;
 }
 
-.btn-nav h3{
-  color:white
+.btn-nav h3 {
+  color: white
 }
+
 .btn-logout h3 {
   color: rgb(0, 0, 0);
   margin: 0;
@@ -554,13 +551,13 @@ canvas {
   transition: 400ms;
 }
 
-.btn-nav-white:hover{
+.btn-nav-white:hover {
   background-color: rgb(221, 221, 221);
   width: 70%;
 }
 
 
-.graficoArea{
+.graficoArea {
   height: 400px;
   width: 700px;
   background-color: rgb(255, 255, 255, 0.95);
@@ -576,12 +573,13 @@ canvas {
   align-items: center;
 
 }
-.grafico{
+
+.grafico {
   width: 600px;
   height: 300px;
 }
 
-.texto3_pg5{
+.texto3_pg5 {
   color: white;
   border-bottom: 2px solid;
   margin-top: 20px;
@@ -590,11 +588,7 @@ canvas {
   text-align: right;
   width: 75%;
 }
-.texto3_pg5:hover{
+
+.texto3_pg5:hover {
   background-color: rgba(0, 0, 0, 0.47);
-  /* border-radius: 33px; */
 }
-/* scrollbar{
-  position: relative;
-  right: -30px;
-} */

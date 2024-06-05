@@ -40,7 +40,7 @@
                 <p class="menor">Não tem login ainda?</p>
                 <button class="botaoC" onclick="cadastro()"><b>Cadastre-se</b></button>
             </div><!-- Cadastro -->
-            
+
         </div> <!-- Box -->
 
     </div>
@@ -51,26 +51,24 @@
 
 <script>
 
-    function pag_i(){
+    function pag_i() {
         window.location.href = "index.html"
     }
-    function cadastro(){
+    function cadastro() {
         window.location.href = "cadastro.html"
     }
 
     function login() {
-        // aguardar();
 
         var emailVar = input_email.value;
         var senhaVar = input_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            alert ("Preencha TODOS os campos corretamente!");
-            // finalizarAguardar();
+            alert("Preencha TODOS os campos corretamente!");
             return false;
         }
-       
+
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
@@ -96,7 +94,6 @@
                     sessionStorage.EMAIL_USUARIO = json[0].email;
                     sessionStorage.NOME_USUARIO = json[0].nome;
                     sessionStorage.ID_USUARIO = json[0].id;
-                    // sessionStorage.HISTORICO = JSON.stringify(json.historico)
                     sessionStorage.HISTORICO = json[0].resultado
 
 
@@ -114,7 +111,6 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    // finalizarAguardar(texto);
                 });
             }
 
@@ -124,9 +120,4 @@
 
         return false;
     }
-
-    // function sumirMensagem() {
-    //     cardErro.style.display = "none"
-    // }
-
 </script>

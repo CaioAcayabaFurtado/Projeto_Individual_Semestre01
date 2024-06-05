@@ -58,12 +58,11 @@
         </div>
 
         <div class="dash">
-            <!-- <div id="alerta">
-            </div> -->
             <h1 class="titulo-quest">Responda o questionário para fazer a avaliação:</h1>
             <div class="quest">
                 <div class="pergunta">
-                    <p>Como você avalia a contribuição das práticas de descarte de lixo da empresa para a sustentabilidade ambiental?</p>
+                    <p>Como você avalia a contribuição das práticas de descarte de lixo da empresa para a
+                        sustentabilidade ambiental?</p>
                     <select name="select1" id="select_1">
                         <option selected disabled value="#">Selecione uma opção</option>
                         <option value="5">Exelente</option>
@@ -74,7 +73,8 @@
                     </select>
                 </div>
                 <div class="pergunta">
-                    <p>Os materiais recicláveis (papel, plástico, vidro, metal) são corretamente separados e encaminhados para reciclagem?</p>
+                    <p>Os materiais recicláveis (papel, plástico, vidro, metal) são corretamente separados e
+                        encaminhados para reciclagem?</p>
                     <select name="select3" id="select_3">
                         <option selected disabled value="#">Selecione uma opção</option>
                         <option value="5">Sempre</option>
@@ -85,7 +85,8 @@
                     </select>
                 </div>
                 <div class="pergunta">
-                    <p>Quais tecnologias ou inovações a empresa implementou para melhorar o gerenciamento de resíduos e promover a sustentabilidade?</p>
+                    <p>Quais tecnologias ou inovações a empresa implementou para melhorar o gerenciamento de resíduos e
+                        promover a sustentabilidade?</p>
                     <select name="select2" id="select_2">
                         <option selected disabled value="#">Selecione uma opção</option>
                         <option value="5">Sistemas automatizados de segregação de resíduos</option>
@@ -96,7 +97,9 @@
                     </select>
                 </div>
                 <div class="pergunta">
-                    <p>A empresa possui parcerias ou contratos com empresas especializadas em reciclagem e gestão de resíduos? Se sim, qual é a avaliação dessas parcerias em termos de eficiência e sustentabilidade?</p>
+                    <p>A empresa possui parcerias ou contratos com empresas especializadas em reciclagem e gestão de
+                        resíduos? Se sim, qual é a avaliação dessas parcerias em termos de eficiência e
+                        sustentabilidade?</p>
                     <select name="select4" id="select_4">
                         <option selected disabled value="#">Selecione uma opção</option>
                         <option value="5">Muito satisfatória</option>
@@ -107,7 +110,8 @@
                     </select>
                 </div>
                 <div class="pergunta">
-                    <p>Como a empresa garante a conformidade com as regulamentações ambientais e normas de descarte de resíduos?</p>
+                    <p>Como a empresa garante a conformidade com as regulamentações ambientais e normas de descarte de
+                        resíduos?</p>
                     <select name="select5" id="select_5">
                         <option selected disabled value="#">Selecione uma opção</option>
                         <option value="5">Consultorias externas especializadas</option>
@@ -123,9 +127,9 @@
                 <button class="botaoR" onclick="avaliar()"><b>Avaliar</b></button>
                 <div class="msg" id="div_msg"></div>
             </div>
-            </div>
-
         </div>
+
+    </div>
 
 </body>
 
@@ -220,40 +224,37 @@
     // Registro - Inicio
 
     function cadastrar() {
-    
 
-      // Enviando o valor da nova input
-      fetch("/historico/historicoRota", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          // crie um atributo que recebe o valor recuperado aqui
-          // Agora vá para o arquivo routes/usuario.js
-          totalServer: total,
-          idServer: sessionStorage.ID_USUARIO // Suporte sugeriu
-        }),
-      })
-        .then(function (resposta) {
-          console.log("resposta: ", resposta);
 
-          if (resposta.ok) {
-            // cardErro.style.display = "block";
-
-            alert ("Seu nível foi cadastrado no histórico");
-            
-            inserirMedida();
-            limparFormulario();
-          } else {
-            throw "Houve um erro ao tentar realizar o cadastro da sua avaliação!";
-          }
+        // Enviando o valor da nova input
+        fetch("/historico/historicoRota", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                totalServer: total,
+                idServer: sessionStorage.ID_USUARIO // Suporte sugeriu
+            }),
         })
-        .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-        });
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
 
-      return false;
+                if (resposta.ok) {
+                    alert("Seu nível foi cadastrado no histórico");
+                    inserirMedida();
+                    limparFormulario();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro da sua avaliação!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+        return false;
     }
 
 </script>
