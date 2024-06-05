@@ -210,7 +210,7 @@
             total = 0
             total = pontos / 5;
             total = total.toFixed(0);
-            div_msg.innerHTML = `Sua pontuação foi: ${total}, agora você pode vizualizala na página "histórico".`;
+            div_msg.innerHTML = `Você está no nível ${total}, agora você pode comparar com os níveis das outras pessoas na página "Histórico".`;
             cadastrar()
         }
 
@@ -241,7 +241,7 @@
           if (resposta.ok) {
             // cardErro.style.display = "block";
 
-            alert ("Sua nota foi cadastrada no histórico");
+            alert ("Seu nível foi cadastrado no histórico");
             
             inserirMedida();
             limparFormulario();

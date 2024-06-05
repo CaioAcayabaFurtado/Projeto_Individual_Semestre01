@@ -81,14 +81,14 @@
 
 
             <div class="graficoArea">
-                <h1>Avaliações da Comunidade:</h1>
+                <h1>Todos os níveis da Comunidade:</h1>
                 <div class="grafico">
                     <canvas id="myChart"></canvas>
                 </div>
             </div>
 
             <p class="titulo-legenda">
-                Parâmetros para as notas:
+                Parâmetros para os níveis:
             </p>
             <div class="parametros-alerta">
                 <div class="item-regua perigo-frio">
@@ -158,16 +158,21 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    console.log(json[0]["1"])
-                    dados.push(json[0]["1"])
-                    console.log(json[0]["2"])
-                    dados.push(json[0]["2"])
-                    console.log(json[0]["3"])
-                    dados.push(json[0]["3"])
-                    console.log(json[0]["4"])
-                    dados.push(json[0]["4"])
-                    console.log(json[0]["5"])
-                    dados.push(json[0]["5"])
+                    // console.log(json[0]["1"])
+                    // dados.push(json[0]["1"])
+                    // console.log(json[0]["2"])
+                    // dados.push(json[0]["2"])
+                    // console.log(json[0]["3"])
+                    // dados.push(json[0]["3"])
+                    // console.log(json[0]["4"])
+                    // dados.push(json[0]["4"])
+                    // console.log(json[0]["5"])
+                    // dados.push(json[0]["5"])
+
+                    for (var index = 1; index <= 5; index++) {
+                        console.log(json[0][`${index}`])
+                        dados.push(json[0][`${index}`])
+                    }
                     gerarGrafico()
                 });
 
@@ -195,22 +200,32 @@
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['1', '2', '3', '4', '5'],
+                labels: ['Nível 1', 'Nível 2', 'Nível 3', 'Nível 4', 'Nível 5'],
                 datasets: [{
-                    label: 'Quantidade de notas por coluna',
+                    label: 'Quantidade de pessoas com esse nível',
                     data: dados,
                     borderWidth: 1,
-                    borderColor: 'rgb(22, 105, 19)',
-                    backgroundColor: 'rgb(22, 105, 19)'
+                    // borderColor: 'rgb(22, 105, 19)',
+                    backgroundColor: ['#f72828','#ffb81f','#fcff56','#85ff7a','#51ff3a']
 
                 }
                 ],
 
             },
             options: {
+                plugins:{
+                    legend:{
+                        display: false,
+                    }
+                },
                 scales: {
                     y: {
-                        beginAtZero: true
+                        title:{
+                            display: true,
+                            text: 'Quantidade de pessoas',
+                            beginAtZero: true
+
+                        }
                     }
                 }
             }
