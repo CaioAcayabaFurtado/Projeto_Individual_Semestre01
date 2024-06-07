@@ -443,6 +443,7 @@ html{
 .logoo {
     height: 40px;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 
